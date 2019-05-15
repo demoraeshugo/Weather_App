@@ -1,5 +1,13 @@
 React Weather App
+
 //UNDER CONSTRUCTION//
+Planned Features:
+ - Daily Weather info 
+  - Temp
+  - Humidity
+  - Wind
+ - 5 Day forcast
+  -
 
 
 Web:
