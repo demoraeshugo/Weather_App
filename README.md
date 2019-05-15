@@ -1,7 +1,7 @@
 Wire Frame
 
 Web:
-![Screenshot](Web_Frame@2x.png)
+
 
 Mobile:
 
