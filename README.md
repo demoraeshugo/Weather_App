@@ -1,6 +1,6 @@
 React Weather App
 
-//UNDER CONSTRUCTION//
+![](http://bestanimations.com/Site/Construction/under-construction-gif-6.gif)
 
 Purpose
 - Weather app that uses a 3rd party API to display current and future weather data based on user location.
