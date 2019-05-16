@@ -1,14 +1,21 @@
 React Weather App
 
 //UNDER CONSTRUCTION//
+
 Planned Features:
  - Daily Weather info 
   - Temp
   - Humidity
   - Wind
  - 5 Day forcast
- - Historical Data
 
+Component Hierarchy
+- WeatherApp
+ - NavBar
+ - Dashboard
+  - Current
+  - Forcast
+   - WeekDay
 
 Web:
 
