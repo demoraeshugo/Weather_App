@@ -1,4 +1,4 @@
-#React Weather App
+# React Weather App
 
 ![](http://bestanimations.com/Site/Construction/under-construction-gif-6.gif)
 ![](http://bestanimations.com/Site/Construction/under-construction-gif-6.gif)
