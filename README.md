@@ -2,12 +2,14 @@ React Weather App
 
 //UNDER CONSTRUCTION//
 
-Planned Features:
- - Daily Weather info 
-   - Temp
-   - Humidity
-   - Wind
-  - 5 Day forcast
+Purpose
+- Weather app that uses a 3rd party API to display current and future weather data based on user location.
+
+Goals
+- Clean scalable componenets
+- API usage
+- Room for expansion 
+
 
 Component Hierarchy
 - WeatherApp
