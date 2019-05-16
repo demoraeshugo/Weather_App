@@ -4,10 +4,10 @@ React Weather App
 
 Planned Features:
  - Daily Weather info 
-  - Temp
-  - Humidity
-  - Wind
- - 5 Day forcast
+   - Temp
+   - Humidity
+   - Wind
+     - 5 Day forcast
 
 Component Hierarchy
 - WeatherApp
