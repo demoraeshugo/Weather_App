@@ -7,7 +7,7 @@ Planned Features:
   - Humidity
   - Wind
  - 5 Day forcast
-  -
+ - Historical Data
 
 
 Web:
