@@ -11,11 +11,11 @@ Planned Features:
 
 Component Hierarchy
 - WeatherApp
- - NavBar
- - Dashboard
-  - Current
-  - Forcast
-   - WeekDay
+  - NavBar
+  - Dashboard
+   - Current
+   - Forcast
+    - WeekDay
 
 Web:
 
