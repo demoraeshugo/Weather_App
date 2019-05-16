@@ -7,7 +7,7 @@ Planned Features:
    - Temp
    - Humidity
    - Wind
-     - 5 Day forcast
+  - 5 Day forcast
 
 Component Hierarchy
 - WeatherApp
