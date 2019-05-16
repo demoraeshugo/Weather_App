@@ -23,12 +23,13 @@
     - Forcast
       - WeekDay
 
-## Web:
+## Wireframe
+### Web:
 
 ![Web_Frame@2x](https://user-images.githubusercontent.com/45345315/57752356-e7682b80-76b6-11e9-97e7-e809d108e5cc.png)
 
 
-## Mobile:
+### Mobile:
 
 ![Mobile_Frame@2x](https://user-images.githubusercontent.com/45345315/57752418-1aaaba80-76b7-11e9-8c91-10666129ff06.png)
 
