@@ -13,9 +13,9 @@ Component Hierarchy
 - WeatherApp
   - NavBar
   - Dashboard
-   - Current
-   - Forcast
-    - WeekDay
+    - Current
+    - Forcast
+      - WeekDay
 
 Web:
 
