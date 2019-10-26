@@ -1,13 +1,42 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "../App/App.css";
+import "src/assets/calendar-alt-regular.svg";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-          <p>"Hello World"</p>
-      </header>
-    </div>
+    <>
+      <div className="Wrapper">
+        <div className="Wrapper-child">
+          <div className="Top-Bar">
+            <span className="Weather">Weather</span>
+            <div>
+              <input type="text" placeholder="Search.." className="Search-Bar">
+              
+              
+              </input>
+            </div>
+          </div>
+
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30.786"
+              height="35.184"
+              viewBox="0 0 30.786 35.184"
+            >
+              <defs>
+                <style>{".cls-1{fill:#5e5e5e}"}</style>
+              </defs>
+              <path
+                id="calendar-alt-regular"
+                d="M10.17 19.791H7.422a.827.827 0 0 1-.825-.825v-2.749a.827.827 0 0 1 .825-.825h2.748a.827.827 0 0 1 .825.825v2.749a.827.827 0 0 1-.825.825zm7.422-.825v-2.749a.827.827 0 0 0-.825-.825h-2.749a.827.827 0 0 0-.825.825v2.749a.827.827 0 0 0 .825.825h2.749a.827.827 0 0 0 .825-.825zm6.6 0v-2.749a.827.827 0 0 0-.825-.825h-2.752a.827.827 0 0 0-.825.825v2.749a.827.827 0 0 0 .825.825h2.749a.827.827 0 0 0 .825-.825zm-6.6 6.6v-2.752a.827.827 0 0 0-.825-.825h-2.749a.827.827 0 0 0-.825.825v2.749a.827.827 0 0 0 .825.825h2.749a.827.827 0 0 0 .825-.825zm-6.6 0v-2.752a.827.827 0 0 0-.825-.825H7.422a.827.827 0 0 0-.825.825v2.749a.827.827 0 0 0 .825.825h2.748a.827.827 0 0 0 .825-.825zm13.194 0v-2.752a.827.827 0 0 0-.825-.825h-2.746a.827.827 0 0 0-.825.825v2.749a.827.827 0 0 0 .825.825h2.749a.827.827 0 0 0 .825-.825zm6.6-17.866v24.185a3.3 3.3 0 0 1-3.3 3.3H3.3a3.3 3.3 0 0 1-3.3-3.3V7.7a3.3 3.3 0 0 1 3.3-3.3h3.3V.825A.827.827 0 0 1 7.422 0h2.748a.827.827 0 0 1 .825.825V4.4h8.8V.825a.827.827 0 0 1 .82-.825h2.749a.827.827 0 0 1 .825.825V4.4h3.3a3.3 3.3 0 0 1 3.297 3.3zm-3.3 23.776V10.995H3.3v20.478a.414.414 0 0 0 .412.412h23.363a.414.414 0 0 0 .412-.412z"
+                class="cls-1"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
