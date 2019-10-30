@@ -2,8 +2,14 @@ import React, { Component } from "react";
 
 class Header extends Component {
   render() {
-    return (
-      <div>
+    return <div></div>;
+  }
+}
+
+export default Header;
+
+/*
+<div>
         <div className="Top-Bar">
           <span className="Weather">Weather</span>
           <div className="Search-Bar">
@@ -48,8 +54,7 @@ class Header extends Component {
           </svg>
         </div>
       </div>
-    );
-  }
-}
 
-export default Header;
+
+
+*/

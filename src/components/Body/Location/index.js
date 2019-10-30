@@ -3,15 +3,73 @@ import React, { Component } from "react";
 class Location extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      date: ""
+    };
+  }
+
+  getDate() {
+    const weekdays = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thrusday",
+      "Friday",
+      "Saturday"
+    ];
+
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+
+    const today = new Date();
+
+    const dd = String(today.getDate()).padStart(2, "0");
+
+    var day = String(today.getDay());
+    day = weekdays[day];
+
+    var mm = String(today.getMonth());
+    mm = months[mm];
+
+    const yyyy = today.getFullYear();
+
+    this.setState({
+      date: `${day}, ${mm} ${dd}, ${yyyy}`
+    });
   }
 
   componentWillMount() {
-      
+    this.getDate();
+  }
+
+  divStyle = {
+    borderStyle: "solid",
+    borderWidth: "1px"
   }
 
   render() {
-    return <div>{this.props.location}</div>;
+    return (
+      <>
+        <div style={this.divStyle}>
+          <div>Location Component</div>
+          <div>{this.props.location}</div>
+          <div>{this.state.date}</div>
+        </div>
+      </>
+    );
   }
 }
 
