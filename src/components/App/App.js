@@ -7,40 +7,15 @@ import APIConfig from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currentData: {
-        location: "New York",
-        ID: 5128638,
-        Code: "US",
-        Temp: 0,
-        Description: "",
-        Humidity: 0
-      }
-    };
+    this.state = this.default
   }
 
-  APIConfig = APIConfig;
-
-  getWeatherOnStart = async () => {
-    const result = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${this.state.currentData.location},${this.state.currentData.Code},uk&appid=${this.APIConfig.key}`
-    );
-    await result.json().then(async data =>
-      this.setState({
-        currentData: {
-          location: this.state.currentData.location,
-          ID: this.state.currentData.ID,
-          Code: this.state.currentData.Code,
-          Temp: this.unitConverstion(data.main.temp),
-          Description: data.weather[0].main,
-          Humidity: data.main.humidity
-        }
-      })
-    );
-  };
-
-  unitConverstion(k) {
-    return Math.round(((k - 273.15) * 9/5 + 32))
+  default = {
+    currentData: {
+        location: "New York",
+        ID: 5128638,
+        code: "US",
+      }
   }
 
   /*
@@ -90,6 +65,7 @@ class App extends Component {
     */
   //this.getWeatherOnStart(getLocation());
 
+/*
   componentWillMount() {
     this.getWeatherOnStart();
   }
@@ -97,20 +73,13 @@ class App extends Component {
   componentWillUpdate() {
     this.getWeatherOnStart();
   }
+  */
 
   render() {
     return (
       <div className="Wrapper">
         <div className="Wrapper-Child">
-          <div>
-            The current temperature in, {this.state.currentData.location} is{" "}
-            {this.state.currentData.Temp}
-          </div>
-          <div>
-            It is {this.state.currentData.Description}, the humidity is at{" "}
-            {this.state.currentData.Humidity}
-          </div>
-          <Body currentLocation={this.state.currentLocation}></Body>
+          <Body currentData={this.state.currentData}></Body>
         </div>
       </div>
     );
