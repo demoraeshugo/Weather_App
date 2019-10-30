@@ -6,8 +6,12 @@ class Location extends Component {
     this.state = {};
   }
 
+  componentWillMount() {
+      
+  }
+
   render() {
-    return <div>"Location"</div>;
+    return <div>{this.props.location}</div>;
   }
 }
 
