@@ -51,7 +51,7 @@ class Location extends Component {
     });
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getDate();
   }
 
@@ -60,11 +60,15 @@ class Location extends Component {
     borderWidth: "1px"
   }
 
+  colorBlue = {
+    color: "blue",
+  }
+
   render() {
     return (
       <>
         <div style={this.divStyle}>
-          <div>Location Component</div>
+          <div style={this.colorBlue}>Location Component</div>
           <div>{this.props.location}</div>
           <div>{this.state.date}</div>
         </div>

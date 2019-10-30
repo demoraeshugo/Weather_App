@@ -1,8 +1,36 @@
 import React, { Component } from "react";
 
 class Header extends Component {
+  divStyle = {
+    borderStyle: "solid",
+    borderWidth: "1px"
+  };
+
+  ColorBlue = {
+    color: "blue"
+  }
+
+  width = {
+    width: "300px"
+  }
+
   render() {
-    return <div></div>;
+    return (
+      <div style={this.divStyle}>
+        <div style={this.ColorBlue}>Header Component</div>
+        <form autoComplete="off" onSubmit={this.props.handleClick}>
+          <div className="autocomplete" style={this.width}>
+            <input
+              id="myInput"
+              type="text"
+              name="Location"
+              placeholder="Location"
+            ></input>
+          </div>
+          <input type="submit" ></input>
+        </form>
+      </div>
+    );
   }
 }
 
