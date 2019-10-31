@@ -8,15 +8,6 @@ class Header extends Component {
     }
   }
 
-/*
-  handleChange = event => {
-    this.setState({
-      input: event.target.value
-    })
-    console.log(this.state.input)
-  }
-  */
-
   divStyle = {
     borderStyle: "solid",
     borderWidth: "1px"
