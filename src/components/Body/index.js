@@ -3,9 +3,6 @@ import Location from "../Body/Location/index.js";
 
 
 class Body extends Component {
-
-
-
   divStyle = {
     borderStyle: "solid",
     borderWidth: "1px"

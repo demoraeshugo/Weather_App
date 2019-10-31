@@ -16,7 +16,9 @@ class App extends Component {
         temp: 0,
         description: "",
         humidity: 0,
-      }
+      },
+      formValue: ""
+
     };
   }
 
@@ -59,34 +61,43 @@ class App extends Component {
 
   cityList = JsonData;
 
-  getLocation = input => {
-    for (let i = 0; i < 40; i++) {
-      if (this.cityList[i].name === input) {
+  getLocation = (location) => {
+    for (let i = 0; i < this.cityList.length; i++) {
+      if (this.cityList[i].name === location) {
         return this.cityList[i];
       }
     }
     console.log("ERROR: city not found");
   };
 
-  handleClick = event => {
-    console.log(event.target.value);
+  handleChange = event => {
+    this.setState({
+      formValue: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    var location = event.target.firstChild.firstChild.value
+    location = this.getLocation(location);
     event.preventDefault();
-    const location = this.getLocation(event);
     this.setState({
       currentData: {
-        location: location,
+        location: location.name,
         ID: 5128638,
-        code: "GB"
+        code: location.country,
+        temp: 0,
+        description: "",
+        humidity: 0,
       }
     });
-    
+   
   };
 
   render() {
     return (
       <div className="Wrapper">
         <div className="Wrapper-Child">
-          <Header handleClick={this.handleClick}></Header>
+          <Header handleSubmit={this.handleSubmit} handleChange={this.handleChange} formValue={this.state.formValue}></Header>
           <Body currentData={this.state.currentData} getWeather={this.getWeather}></Body>
         </div>
       </div>
