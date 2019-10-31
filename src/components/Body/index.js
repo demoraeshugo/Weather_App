@@ -12,6 +12,10 @@ class Body extends Component {
     color: "blue"
   };
 
+  componentWillMount() {
+    this.props.getWeather();
+  }
+
   render() {
     return (
       <>

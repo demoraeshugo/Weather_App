@@ -29,6 +29,7 @@ class App extends Component {
 
     const location = this.state.currentData.location;
     const code = this.state.currentData.code;
+    const ID = this.state.currentData.ID;
     const result = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${location},${code},uk&appid=${
         this.APIConfig.key
@@ -40,9 +41,12 @@ class App extends Component {
     await result.json().then(async data =>
       this.setState({
         currentData: {
+          location: location,
+          ID: ID,
+          code: code,
           temp: this.unitConverstion(data.main.temp),
           description: data.weather[0].main,
-          humidity: data.main.humidity
+          humidity: data.main.humidity,
         }
       })
     );
