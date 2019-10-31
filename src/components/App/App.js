@@ -23,6 +23,7 @@ class App extends Component {
   }
 
   APIConfig = APIConfig;
+  cityList = JsonData;
 
   getWeather = async () => {
 
@@ -50,16 +51,6 @@ class App extends Component {
   unitConverstion(k) {
     return Math.round(((k - 273.15) * 9) / 5 + 32);
   }
-
-  default = {
-    currentData: {
-      location: "New York",
-      ID: 5128638,
-      code: "US"
-    }
-  };
-
-  cityList = JsonData;
 
   getLocation = (location) => {
     for (let i = 0; i < this.cityList.length; i++) {
@@ -90,7 +81,6 @@ class App extends Component {
         humidity: 0,
       }
     });
-   
   };
 
   render() {
