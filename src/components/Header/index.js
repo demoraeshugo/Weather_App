@@ -1,6 +1,22 @@
 import React, { Component } from "react";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    input: ""
+    }
+  }
+
+/*
+  handleChange = event => {
+    this.setState({
+      input: event.target.value
+    })
+    console.log(this.state.input)
+  }
+  */
+
   divStyle = {
     borderStyle: "solid",
     borderWidth: "1px"
@@ -18,13 +34,13 @@ class Header extends Component {
     return (
       <div style={this.divStyle}>
         <div style={this.ColorBlue}>Header Component</div>
-        <form autoComplete="off" onSubmit={this.props.handleClick}>
+        <form autoComplete="off" onSubmit={(e) => this.props.handleSubmit(e)}>
           <div className="autocomplete" style={this.width}>
             <input
-              id="myInput"
+              onChange={(e) => this.props.handleChange(e)}
+              value={this.props.formValue}
               type="text"
               name="Location"
-              placeholder="Location"
             ></input>
           </div>
           <input type="submit" ></input>
