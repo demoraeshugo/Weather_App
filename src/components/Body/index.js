@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Location from "../Body/Location/index.js";
 
-
 class Body extends Component {
   divStyle = {
     borderStyle: "solid",
@@ -14,6 +13,12 @@ class Body extends Component {
 
   componentWillMount() {
     this.props.getWeather();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.currentData.location !== prevProps.currentData.location) {
+      this.props.getWeather();
+    }
   }
 
   render() {
