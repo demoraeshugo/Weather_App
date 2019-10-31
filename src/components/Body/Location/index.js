@@ -14,7 +14,7 @@ class Location extends Component {
       "Monday",
       "Tuesday",
       "Wednesday",
-      "Thrusday",
+      "Thursday",
       "Friday",
       "Saturday"
     ];

@@ -29,7 +29,8 @@ class App extends Component {
     const code = this.state.currentData.code;
     const ID = this.state.currentData.ID;
     const result = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${location},${code},uk&appid=${this.APIConfig.key}`
+      //`https://api.openweathermap.org/data/2.5/weather?q=${location},${code},uk&appid=${this.APIConfig.key}`
+      `http://api.openweathermap.org/data/2.5/weather?id=${ID}&APPID=${this.APIConfig.key}`
     );
 
     await result.json().then(async data =>
@@ -40,7 +41,7 @@ class App extends Component {
           code: code,
           temp: this.unitConverstion(data.main.temp),
           description: data.weather[0].main,
-          humidity: data.main.humidity,
+          humidity: data.main.humidity
         },
         formValue: this.state.formValue
       })
@@ -70,18 +71,22 @@ class App extends Component {
     var location = event.target.firstChild.firstChild.value;
     location = this.getLocation(location);
     event.preventDefault();
-    this.setState({
-      currentData: {
-        location: location.name,
-        ID: location.id,
-        code: location.country,
-        temp: this.state.currentData.temp,
-        description: this.state.currentData.description,
-        humidity: this.state.currentData.humidity,
-      },
-      formValue: this.state.formValue
-    })
-  }
+    if (location) {
+      this.setState({
+        currentData: {
+          location: location.name,
+          ID: location.id,
+          code: location.country,
+          temp: this.state.currentData.temp,
+          description: this.state.currentData.description,
+          humidity: this.state.currentData.humidity
+        },
+        formValue: this.state.formValue
+      });
+    } else {
+      console.log("Error: invalid city")
+    }
+  };
 
   render() {
     return (
