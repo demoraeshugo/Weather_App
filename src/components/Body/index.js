@@ -11,6 +11,10 @@ class Body extends Component {
     color: "blue"
   };
 
+  ColorRed = {
+    color: "red"
+  };
+
   componentWillMount() {
     this.props.getWeather();
   }
@@ -24,12 +28,14 @@ class Body extends Component {
   render() {
     return (
       <>
-        <Location location={this.props.currentData.location}></Location>
+        <Location className={this.ColorRed} location={this.props.currentData.location}></Location>
         <div style={this.divStyle}>
           <div style={this.ColorBlue}>Body Component</div>
-          <div>The current temperature is {this.props.currentData.temp} F</div>
-          <div>Current Conditions: {this.props.currentData.description}</div>
-          <div>Humidity: {this.props.currentData.humidity}%</div>
+          <div>The current temperature is <span className={this.ColorRed}>{this.props.currentData.temp.current} F</span></div>
+          <div>High <span className={this.ColorRed}>{this.props.currentData.temp.max} F</span></div>
+          <div>Low <span className={this.ColorRed}>{this.props.currentData.temp.min} F</span></div>
+          <div>Conditions: <span className={this.ColorRed}>{this.props.currentData.description}</span></div>
+          <div>Humidity: <span className={this.ColorRed}>{this.props.currentData.humidity}%</span></div>
         </div>
       </>
     );
