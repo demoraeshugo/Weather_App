@@ -115,7 +115,6 @@ class App extends Component {
         return this.cityList[i];
       }
     }
-    console.log("ERROR: city not found");
   };
 
   handleChange = event => {
