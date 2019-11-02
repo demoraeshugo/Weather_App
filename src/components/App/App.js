@@ -111,7 +111,7 @@ class App extends Component {
 
   render() {
     const { currentData, formValue } = this.state;
-    
+
     return (
       <div className="Wrapper">
         <div className="Wrapper-Child">
