@@ -41,7 +41,7 @@ class App extends Component {
   cityList = JsonData;
 
   getWeather = async () => {
-    const { currentData } = this.state;
+    const {currentData} = this.state;
     const id = currentData.location.id;
     let updatedState = JSON.parse(JSON.stringify(currentData));
 
@@ -53,7 +53,8 @@ class App extends Component {
       .catch(error => console.log(error));
 
     if (await result) {
-      result.json().then(async data => {
+      result.json()
+      .then(async data => {
         updatedState.temp = {
           current: this.unitConverstion(data.main.temp),
           min: this.unitConverstion(data.main.temp_min),
@@ -65,10 +66,6 @@ class App extends Component {
         });
       });
     }
-  };
-
-  getWeatherTest = () => {
-    console.log("Test");
   };
 
   handleErrors(response) {

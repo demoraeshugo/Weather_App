@@ -65,7 +65,7 @@ class Location extends Component {
   }
 
   render() {
-    const {name} = this.props.currentData
+    const {name} = this.props.currentData.location
     const {date} = this.state
     return (
       <>
