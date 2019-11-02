@@ -13,12 +13,15 @@ class App extends Component {
         location: {
           name: "New York",
           id: 5128638,
-          code: "US"
         },
         temp: {
           current: 0,
           min: 0,
           max: 0
+        },
+        wind: {
+          speed: 0,
+          direction: ""
         },
         description: "",
         humidity: 0
@@ -27,35 +30,52 @@ class App extends Component {
     };
   }
 
+  /* 
+  "wind": {
+    "speed": 1.5,
+    "deg": 350
+  },
+  */
+
   APIConfig = APIConfig;
   cityList = JsonData;
 
   getWeather = async () => {
-
-    const id = this.state.currentData.location.id;
-    let updatedState = JSON.parse(JSON.stringify(this.state.currentData))
+    const { currentData } = this.state;
+    const id = currentData.location.id;
+    let updatedState = JSON.parse(JSON.stringify(currentData));
 
     const result = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?id=${id}&APPID=${this.APIConfig.key}`
     )
-    .then(console.log("Made API Call"))
+    .then(this.handleErrors)
+    .then(response => console.log("API Call: Successful"))
+    .catch(error => console.log(error))
 
     await result.json().then(async data => {
 
-      updatedState.temp.current = this.unitConverstion(data.main.temp)
-      updatedState.temp.min = this.unitConverstion(data.main.temp_min)
-      updatedState.temp.max = this.unitConverstion(data.main.temp_max)
+      updatedState.temp = {
+        current: this.unitConverstion(data.main.temp),
+        min: this.unitConverstion(data.main.temp_min),
+        max: this.unitConverstion(data.main.temp_max)
+      }
 
       this.setState({
         currentData: updatedState
-      })
-    }
-    );
+      });
+    });
   };
 
   getWeatherTest = () => {
-    console.log("Test")
-  }
+    console.log("Test");
+  };
+
+  handleErrors(response) {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+}
 
   unitConverstion = k => {
     return Math.round(((k - 273.15) * 9) / 5 + 32);
@@ -76,22 +96,21 @@ class App extends Component {
   };
 
   handleSubmit = event => {
-
     const input = event.target.firstChild.firstChild.value;
     const location = this.getLocation(input);
 
     event.preventDefault();
     if (location) {
-
       let updatedState = JSON.parse(JSON.stringify(this.state.currentData));
 
-      updatedState.location.name = location.name;
-      updatedState.location.id = location.id;
-      updatedState.location.code = location.country;
+      updatedState.location = {
+        name: location.name,
+        id: location.id,
+      }
 
       this.setState({
         currentData: updatedState
-      })
+      });
 
     } else {
       console.log("Error: invalid city");
@@ -99,7 +118,7 @@ class App extends Component {
   };
 
   render() {
-    const {currentData, formValue} = this.state;
+    const { currentData, formValue } = this.state;
     return (
       <div className="Wrapper">
         <div className="Wrapper-Child">
