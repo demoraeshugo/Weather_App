@@ -60,6 +60,8 @@ class App extends Component {
           min: this.unitConverstion(data.main.temp_min),
           max: this.unitConverstion(data.main.temp_max)
         };
+        
+        updatedState.wind = data.wind;
 
         this.setState({
           currentData: updatedState
