@@ -20,22 +20,41 @@ class Body extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.currentData.location !== prevProps.currentData.location) {
+    if (
+      this.props.currentData.location.name !==
+      prevProps.currentData.location.name
+    ) {
       this.props.getWeather();
     }
   }
 
   render() {
+    const { current, max, min } = this.props.currentData.temp;
+    const { description, humidity } = this.props.currentData;
     return (
       <>
-        <Location className={this.ColorRed} location={this.props.currentData.location}></Location>
+        <Location
+          className={this.ColorRed}
+          currentData={this.props.currentData}
+        ></Location>
         <div style={this.divStyle}>
           <div style={this.ColorBlue}>Body Component</div>
-          <div>The current temperature is <span className={this.ColorRed}>{this.props.currentData.temp.current} F</span></div>
-          <div>High <span className={this.ColorRed}>{this.props.currentData.temp.max} F</span></div>
-          <div>Low <span className={this.ColorRed}>{this.props.currentData.temp.min} F</span></div>
-          <div>Conditions: <span className={this.ColorRed}>{this.props.currentData.description}</span></div>
-          <div>Humidity: <span className={this.ColorRed}>{this.props.currentData.humidity}%</span></div>
+          <div>
+            The current temperature is{" "}
+            <span className={this.ColorRed}>{current} F</span>
+          </div>
+          <div>
+            High <span className={this.ColorRed}>{max} F</span>
+          </div>
+          <div>
+            Low <span className={this.ColorRed}>{min} F</span>
+          </div>
+          <div>
+            Conditions: <span className={this.ColorRed}>{description}</span>
+          </div>
+          <div>
+            Humidity: <span className={this.ColorRed}>{humidity}%</span>
+          </div>
         </div>
       </>
     );
