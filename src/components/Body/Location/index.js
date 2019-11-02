@@ -27,7 +27,6 @@ class Location extends Component {
       "Friday",
       "Saturday"
     ];
-
     const months = [
       "January",
       "February",
@@ -42,17 +41,12 @@ class Location extends Component {
       "November",
       "December"
     ];
-
     const today = new Date();
-
     const dd = String(today.getDate()).padStart(2, "0");
-
     var day = String(today.getDay());
     day = weekdays[day];
-
     var mm = String(today.getMonth());
     mm = months[mm];
-
     const yyyy = today.getFullYear();
 
     this.setState({
@@ -69,6 +63,7 @@ class Location extends Component {
   render() {
     const {name} = this.props.currentData.location
     const {date} = this.state
+
     return (
       <>
         <div style={this.divStyle}>
