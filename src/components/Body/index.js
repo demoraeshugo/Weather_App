@@ -41,13 +41,13 @@ class Body extends Component {
           <div style={this.ColorBlue}>Body Component</div>
           <div>
             The current temperature is{" "}
-            <span className={this.ColorRed}>{current} F</span>
+            <span className={this.ColorRed}>{current}° F</span>
           </div>
           <div>
-            High <span className={this.ColorRed}>{max} F</span>
+            High <span className={this.ColorRed}>{max}° F</span>
           </div>
           <div>
-            Low <span className={this.ColorRed}>{min} F</span>
+            Low <span className={this.ColorRed}>{min}° F</span>
           </div>
           <div>
             Conditions: <span className={this.ColorRed}>{description}</span>

@@ -49,7 +49,6 @@ class App extends Component {
       `http://api.openweathermap.org/data/2.5/weather?id=${id}&APPID=${this.APIConfig.key}`
     )
       .then(this.handleErrors)
-      .then(response => console.log("API Call: Successful"))
       .catch(error => console.log(error));
 
     if (await result) {
@@ -60,9 +59,10 @@ class App extends Component {
           min: this.unitConverstion(data.main.temp_min),
           max: this.unitConverstion(data.main.temp_max)
         };
-        
-        updatedState.wind = data.wind;
 
+        updatedState.wind = data.wind;
+        updatedState.humidity = data.main.humidity;
+        updatedState.wind = data.wind
         this.setState({
           currentData: updatedState
         });

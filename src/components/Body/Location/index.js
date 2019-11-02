@@ -8,6 +8,15 @@ class Location extends Component {
     };
   }
 
+  divStyle = {
+    borderStyle: "solid",
+    borderWidth: "1px"
+  };
+
+  colorBlue = {
+    color: "blue",
+  };
+
   getDate() {
     const weekdays = [
       "Sunday",
@@ -55,14 +64,7 @@ class Location extends Component {
     this.getDate();
   }
 
-  divStyle = {
-    borderStyle: "solid",
-    borderWidth: "1px"
-  }
-
-  colorBlue = {
-    color: "blue",
-  }
+  
 
   render() {
     const {name} = this.props.currentData.location
