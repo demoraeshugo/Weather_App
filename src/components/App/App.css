@@ -12,6 +12,7 @@
 
 .Wrapper-Child {
   display: inline-block;
+  width: 70%;
 }
 
 .Top-Bar {

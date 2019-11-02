@@ -65,12 +65,14 @@ class Location extends Component {
   }
 
   render() {
+    const {name} = this.props.currentData
+    const {date} = this.state
     return (
       <>
         <div style={this.divStyle}>
           <div style={this.colorBlue}>Location Component</div>
-          <div>{this.props.location}</div>
-          <div>{this.state.date}</div>
+          <div>{name}</div>
+          <div>{date}</div>
         </div>
       </>
     );
