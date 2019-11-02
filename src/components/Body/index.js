@@ -31,6 +31,7 @@ class Body extends Component {
   render() {
     const { current, max, min } = this.props.currentData.temp;
     const { description, humidity, wind } = this.props.currentData;
+    
     return (
       <>
         <Location

@@ -30,18 +30,11 @@ class App extends Component {
     };
   }
 
-  /* 
-  "wind": {
-    "speed": 1.5,
-    "deg": 350
-  },
-  */
-
   APIConfig = APIConfig;
   cityList = JsonData;
 
   getWeather = async () => {
-    const {currentData} = this.state;
+    const { currentData } = this.state;
     const id = currentData.location.id;
     let updatedState = JSON.parse(JSON.stringify(currentData));
 
@@ -52,17 +45,16 @@ class App extends Component {
       .catch(error => console.log(error));
 
     if (await result) {
-      result.json()
-      .then(async data => {
+      result.json().then(async data => {
         updatedState.temp = {
           current: this.unitConverstion(data.main.temp),
           min: this.unitConverstion(data.main.temp_min),
           max: this.unitConverstion(data.main.temp_max)
         };
-
         updatedState.wind = data.wind;
         updatedState.humidity = data.main.humidity;
-        updatedState.wind = data.wind
+        updatedState.wind = data.wind;
+
         this.setState({
           currentData: updatedState
         });
@@ -99,7 +91,6 @@ class App extends Component {
     const input = event.target.firstChild.firstChild.value;
     const location = this.getLocation(input);
 
-    event.preventDefault();
     if (location) {
       let updatedState = JSON.parse(JSON.stringify(this.state.currentData));
 
@@ -114,10 +105,13 @@ class App extends Component {
     } else {
       console.log("Error: invalid city");
     }
+
+    event.preventDefault();
   };
 
   render() {
     const { currentData, formValue } = this.state;
+    
     return (
       <div className="Wrapper">
         <div className="Wrapper-Child">
