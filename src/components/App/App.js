@@ -12,7 +12,7 @@ class App extends Component {
       currentData: {
         location: {
           name: "New York",
-          id: 5128638,
+          id: 5128638
         },
         temp: {
           current: 0,
@@ -48,22 +48,23 @@ class App extends Component {
     const result = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?id=${id}&APPID=${this.APIConfig.key}`
     )
-    .then(this.handleErrors)
-    .then(response => console.log("API Call: Successful"))
-    .catch(error => console.log(error))
+      .then(this.handleErrors)
+      .then(response => console.log("API Call: Successful"))
+      .catch(error => console.log(error));
 
-    await result.json().then(async data => {
+    if (await result) {
+      result.json().then(async data => {
+        updatedState.temp = {
+          current: this.unitConverstion(data.main.temp),
+          min: this.unitConverstion(data.main.temp_min),
+          max: this.unitConverstion(data.main.temp_max)
+        };
 
-      updatedState.temp = {
-        current: this.unitConverstion(data.main.temp),
-        min: this.unitConverstion(data.main.temp_min),
-        max: this.unitConverstion(data.main.temp_max)
-      }
-
-      this.setState({
-        currentData: updatedState
+        this.setState({
+          currentData: updatedState
+        });
       });
-    });
+    }
   };
 
   getWeatherTest = () => {
@@ -72,10 +73,10 @@ class App extends Component {
 
   handleErrors(response) {
     if (!response.ok) {
-        throw Error(response.statusText);
+      throw Error(response.statusText);
     }
     return response;
-}
+  }
 
   unitConverstion = k => {
     return Math.round(((k - 273.15) * 9) / 5 + 32);
@@ -105,13 +106,12 @@ class App extends Component {
 
       updatedState.location = {
         name: location.name,
-        id: location.id,
-      }
+        id: location.id
+      };
 
       this.setState({
         currentData: updatedState
       });
-
     } else {
       console.log("Error: invalid city");
     }
@@ -127,10 +127,7 @@ class App extends Component {
             handleChange={this.handleChange}
             formValue={formValue}
           ></Header>
-          <Body
-            currentData={currentData}
-            getWeather={this.getWeatherTest}
-          ></Body>
+          <Body currentData={currentData} getWeather={this.getWeather}></Body>
         </div>
       </div>
     );
