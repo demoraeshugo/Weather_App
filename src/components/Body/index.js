@@ -30,7 +30,7 @@ class Body extends Component {
 
   render() {
     const { current, max, min } = this.props.currentData.temp;
-    const { description, humidity } = this.props.currentData;
+    const { description, humidity, wind } = this.props.currentData;
     return (
       <>
         <Location
@@ -54,6 +54,9 @@ class Body extends Component {
           </div>
           <div>
             Humidity: <span className={this.ColorRed}>{humidity}%</span>
+          </div>
+          <div>
+            Wind Speed: <span className={this.ColorRed}>{wind.speed}mph</span>
           </div>
         </div>
       </>
