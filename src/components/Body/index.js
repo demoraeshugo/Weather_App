@@ -31,33 +31,34 @@ class Body extends Component {
   render() {
     const { current, max, min } = this.props.currentData.temp;
     const { description, humidity, wind } = this.props.currentData;
+    const { ColorRed, divStyle, ColorBlue} = this;
     
     return (
       <>
         <Location
-          className={this.ColorRed}
+          className={ColorRed}
           currentData={this.props.currentData}
         ></Location>
-        <div style={this.divStyle}>
-          <div style={this.ColorBlue}>Body Component</div>
+        <div style={divStyle}>
+          <div style={ColorBlue}>Body Component</div>
           <div>
             The current temperature is{" "}
-            <span className={this.ColorRed}>{current}° F</span>
+            <span className={ColorRed}>{current}° F</span>
           </div>
           <div>
-            High <span className={this.ColorRed}>{max}° F</span>
+            High <span className={ColorRed}>{max}° F</span>
           </div>
           <div>
-            Low <span className={this.ColorRed}>{min}° F</span>
+            Low <span className={ColorRed}>{min}° F</span>
           </div>
           <div>
-            Conditions: <span className={this.ColorRed}>{description}</span>
+            Conditions: <span className={ColorRed}>{description}</span>
           </div>
           <div>
-            Humidity: <span className={this.ColorRed}>{humidity}%</span>
+            Humidity: <span className={ColorRed}>{humidity}%</span>
           </div>
           <div>
-            Wind Speed: <span className={this.ColorRed}>{wind.speed}mph</span>
+            Wind Speed: <span className={ColorRed}>{wind.speed}mph</span>
           </div>
         </div>
       </>
