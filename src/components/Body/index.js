@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Location from "../Body/Location/index.js";
+import CurrentWeather from "../Body/Current/index";
 
 class Body extends Component {
   divStyle = {
@@ -15,7 +16,7 @@ class Body extends Component {
     color: "red"
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getWeather();
   }
 
@@ -31,15 +32,35 @@ class Body extends Component {
   render() {
     const { current, max, min } = this.props.currentData.temp;
     const { description, humidity, wind } = this.props.currentData;
-    const { ColorRed, divStyle, ColorBlue} = this;
-    
+    const { currentData } = this.props
+
+    const { ColorRed, divStyle, ColorBlue } = this;
+
+    //this.renderCurrentWeather(current, max, min, description, humidity, wind.speed);
     return (
       <>
         <Location
           className={ColorRed}
-          currentData={this.props.currentData}
+          currentData={currentData}
         ></Location>
-        <div style={divStyle}>
+        <CurrentWeather
+          current={current}
+          max={max}
+          min={min}
+          description={description}
+          humidity={humidity}
+          windSpeed={wind.speed}
+        />
+      </>
+    );
+  }
+}
+
+export default Body;
+
+/*
+
+<div style={divStyle}>
           <div style={ColorBlue}>Body Component</div>
           <div>
             The current temperature is{" "}
@@ -61,9 +82,4 @@ class Body extends Component {
             Wind Speed: <span className={ColorRed}>{wind.speed}mph</span>
           </div>
         </div>
-      </>
-    );
-  }
-}
-
-export default Body;
+*/

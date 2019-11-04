@@ -51,9 +51,10 @@ class App extends Component {
           min: this.unitConverstion(data.main.temp_min),
           max: this.unitConverstion(data.main.temp_max)
         };
-        updatedState.wind = data.wind;
         updatedState.humidity = data.main.humidity;
         updatedState.wind = data.wind;
+
+        //console.log(data)
 
         this.setState({
           currentData: updatedState
