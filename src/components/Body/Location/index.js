@@ -57,8 +57,7 @@ class Location extends Component {
   componentDidMount() {
     this.getDate();
   }
-
-  
+ 
 
   render() {
     const {name} = this.props.currentData.location
