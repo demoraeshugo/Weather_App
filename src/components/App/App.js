@@ -111,16 +111,17 @@ class App extends Component {
 
   render() {
     const { currentData, formValue } = this.state;
+    const { getWeather, handleSubmit, handleChange } = this;
 
     return (
       <div className="Wrapper">
         <div className="Wrapper-Child">
           <Header
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}
+            handleSubmit={handleSubmit}
+            handleChange={handleChange}
             formValue={formValue}
           ></Header>
-          <Body currentData={currentData} getWeather={this.getWeather}></Body>
+          <Body currentData={currentData} getWeather={getWeather}></Body>
         </div>
       </div>
     );

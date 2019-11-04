@@ -26,9 +26,10 @@ class Header extends Component {
   };
 
   render() {
+    const { divStyle, ColorBlue } = this;
     return (
-      <div style={this.divStyle}>
-        <div style={this.ColorBlue}>Header Component</div>
+      <div style={divStyle}>
+        <div style={ColorBlue}>Header Component</div>
         <form autoComplete="off" onSubmit={e => this.props.handleSubmit(e)}>
           <div className="autocomplete">
             <input
