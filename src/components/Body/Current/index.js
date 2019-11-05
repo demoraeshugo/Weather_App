@@ -14,7 +14,7 @@ const CurrentWeather = (props) => {
     color: "red"
   };
 
-  const { current, max, min, description, humidity, windSpeed } = props;
+  const { current, max, min, description, humidity, speed } = props;
 
   return (
     <>
@@ -37,7 +37,7 @@ const CurrentWeather = (props) => {
           Humidity: <span className={ColorRed}>{humidity}%</span>
         </div>
         <div>
-          Wind Speed: <span className={ColorRed}>{windSpeed}mph</span>
+          Wind Speed: <span className={ColorRed}>{speed}mph</span>
         </div>
       </div>
     </>

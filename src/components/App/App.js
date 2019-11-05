@@ -11,25 +11,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      /*
-      currentData: {
-        location: {
-          name: "New York",
-          id: 5128638
-        },
-        temp: {
-          current: 0,
-          min: 0,
-          max: 0
-        },
-        wind: {
-          speed: 0,
-          direction: ""
-        },
-        description: "",
-        humidity: 0
-      },
-      */
       location: {
         name: "New York",
         id: 5128638
@@ -45,18 +26,11 @@ class App extends Component {
 
 
   getWeather = async type => {
-    var updatedState, callType;
-
-    //Get Current State
-    const currentData = this.getCurrentState(type);
+    var callType;
     const id = this.state.location.id;
-
-    //Convert Current State to an Object for updating
-    updatedState = JSON.parse(JSON.stringify(currentData));
 
     type === "CurrentData" ? (callType = "weather") : (callType = "forecast");
 
-    //Call API
     const result = await fetch(
       `http://api.openweathermap.org/data/2.5/${callType}?id=${id}&APPID=${this.APIConfig.key}`
     )
@@ -67,11 +41,11 @@ class App extends Component {
       result.json().then(async data => {
 
         if(type === "CurrentData") {
-          updatedState.main.temp = this.unitConverstion(data.main.temp)
-          updatedState.main.temp_min = this.unitConverstion(data.main.temp_min)
-          updatedState.main.temp_max =  this.unitConverstion(data.main.temp_max)
+          data.main.temp = this.unitConverstion(data.main.temp)
+          data.main.temp_min = this.unitConverstion(data.main.temp_min)
+          data.main.temp_max =  this.unitConverstion(data.main.temp_max)
           this.setState({
-            currentData: updatedState
+            currentData: data
           })
         } else if (type === "forecastData") {
           this.setState({
@@ -120,15 +94,6 @@ class App extends Component {
     const location = this.getLocation(input);
 
     if (location) {
-      /*
-      let updatedState = JSON.parse(JSON.stringify(this.state.location));
-
-      updatedState.location = {
-        name: location.name,
-        id: location.id
-      };
-      */
-
       this.setState({
         location: {
           name: location.name,

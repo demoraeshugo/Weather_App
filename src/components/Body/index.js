@@ -23,17 +23,16 @@ class Body extends Component {
       prevProps.location.name
     ) {
       this.props.getWeather("CurrentData");
+      //this.props.getWeather("forecastData");
     }
   }
 
   render() {
     const { currentData, location } = this.props;
-    const  description  = currentData.weather[0].description
-    const { temp, temp_max, temp_min, humidity } = currentData.main;
+    const { description }  = currentData.weather[0]
+    const { temp, humidity, temp_max, temp_min } = currentData.main;
     const { speed } = currentData.wind;
-  
 
-    //this.renderCurrentWeather(current, max, min, description, humidity, wind.speed);
     return (
       <>
         <div style={this.divStyle}>
@@ -45,7 +44,7 @@ class Body extends Component {
             min={temp_min}
             description={description}
             humidity={humidity}
-            windSpeed={speed}
+            speed={speed}
           />
         </div>
       </>
