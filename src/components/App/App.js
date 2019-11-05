@@ -4,11 +4,14 @@ import Header from "../Header/index.js";
 import Body from "../Body/index.js";
 import APIConfig from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/APIKeys.js";
 import JsonData from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/city.list.json";
+import MockCurrent from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/components/App/MockCurrent.json"
+import MockForecast from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/components/App/MockForecast.json"
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      /*
       currentData: {
         location: {
           name: "New York",
@@ -26,6 +29,13 @@ class App extends Component {
         description: "",
         humidity: 0
       },
+      */
+      location: {
+        name: "New York",
+        id: 5128638
+      },
+      forecastData: MockForecast,
+      currentData: MockCurrent,
       formValue: ""
     };
   }
@@ -33,34 +43,51 @@ class App extends Component {
   APIConfig = APIConfig;
   cityList = JsonData;
 
-  getWeather = async () => {
-    const { currentData } = this.state;
-    const id = currentData.location.id;
-    let updatedState = JSON.parse(JSON.stringify(currentData));
 
+  getWeather = async type => {
+    var updatedState, callType;
+
+    //Get Current State
+    const currentData = this.getCurrentState(type);
+    const id = this.state.location.id;
+
+    //Convert Current State to an Object for updating
+    updatedState = JSON.parse(JSON.stringify(currentData));
+
+    type === "CurrentData" ? (callType = "weather") : (callType = "forecast");
+
+    //Call API
     const result = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?id=${id}&APPID=${this.APIConfig.key}`
+      `http://api.openweathermap.org/data/2.5/${callType}?id=${id}&APPID=${this.APIConfig.key}`
     )
       .then(this.handleErrors)
       .catch(error => console.log(error));
 
     if (await result) {
       result.json().then(async data => {
-        updatedState.temp = {
-          current: this.unitConverstion(data.main.temp),
-          min: this.unitConverstion(data.main.temp_min),
-          max: this.unitConverstion(data.main.temp_max)
-        };
-        updatedState.humidity = data.main.humidity;
-        updatedState.wind = data.wind;
 
-        //console.log(data)
-
-        this.setState({
-          currentData: updatedState
-        });
+        if(type === "CurrentData") {
+          updatedState.main.temp = this.unitConverstion(data.main.temp)
+          updatedState.main.temp_min = this.unitConverstion(data.main.temp_min)
+          updatedState.main.temp_max =  this.unitConverstion(data.main.temp_max)
+          this.setState({
+            currentData: updatedState
+          })
+        } else if (type === "forecastData") {
+          this.setState({
+            forecastData: data
+          })
+        }
       });
     }
+  };
+
+  getCurrentState = type => {
+    let currentState;
+    type === "CurrentData"
+      ? (currentState = this.state.currentData)
+      : (currentState = this.state.forcastData);
+    return currentState;
   };
 
   handleErrors(response) {
@@ -111,7 +138,7 @@ class App extends Component {
   };
 
   render() {
-    const { currentData, formValue } = this.state;
+    const { forecastData, currentData, formValue, location } = this.state;
     const { getWeather, handleSubmit, handleChange } = this;
 
     return (
@@ -122,7 +149,7 @@ class App extends Component {
             handleChange={handleChange}
             formValue={formValue}
           ></Header>
-          <Body currentData={currentData} getWeather={getWeather}></Body>
+          <Body currentData={currentData} getWeather={getWeather} location={location}></Body>
         </div>
       </div>
     );
