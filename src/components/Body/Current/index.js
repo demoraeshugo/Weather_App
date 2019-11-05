@@ -22,22 +22,22 @@ const CurrentWeather = (props) => {
         <div style={ColorBlue}>Current Weather Component</div>
         <div>
           The current temperature is{" "}
-          <span className={ColorRed}>{current}° F</span>
+          <span style={ColorRed}>{current}° F</span>
         </div>
         <div>
-          High <span className={ColorRed}>{max}° F</span>
+          High <span style={ColorRed}>{max}° F</span>
         </div>
         <div>
-          Low <span className={ColorRed}>{min}° F</span>
+          Low <span style={ColorRed}>{min}° F</span>
         </div>
         <div>
-          Conditions: <span className={ColorRed}>{description}</span>
+          Conditions: <span style={ColorRed}>{description}</span>
         </div>
         <div>
-          Humidity: <span className={ColorRed}>{humidity}%</span>
+          Humidity: <span style={ColorRed}>{humidity}%</span>
         </div>
         <div>
-          Wind Speed: <span className={ColorRed}>{speed}mph</span>
+          Wind Speed: <span style={ColorRed}>{speed}mph</span>
         </div>
       </div>
     </>

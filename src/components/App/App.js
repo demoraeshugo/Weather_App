@@ -28,11 +28,12 @@ class App extends Component {
   getWeather = async type => {
     var callType;
     const id = this.state.location.id;
+    const unit = "imperial";
 
     type === "CurrentData" ? (callType = "weather") : (callType = "forecast");
 
     const result = await fetch(
-      `http://api.openweathermap.org/data/2.5/${callType}?id=${id}&APPID=${this.APIConfig.key}`
+      `http://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${this.APIConfig.key}`
     )
       .then(this.handleErrors)
       .catch(error => console.log(error));
@@ -41,9 +42,11 @@ class App extends Component {
       result.json().then(async data => {
 
         if(type === "CurrentData") {
+          /*
           data.main.temp = this.unitConverstion(data.main.temp)
           data.main.temp_min = this.unitConverstion(data.main.temp_min)
           data.main.temp_max =  this.unitConverstion(data.main.temp_max)
+          */
           this.setState({
             currentData: data
           })
@@ -119,7 +122,7 @@ class App extends Component {
             handleChange={handleChange}
             formValue={formValue}
           ></Header>
-          <Body currentData={currentData} getWeather={getWeather} location={location}></Body>
+          <Body currentData={currentData} forecastData={forecastData} getWeather={getWeather} location={location}></Body>
         </div>
       </div>
     );

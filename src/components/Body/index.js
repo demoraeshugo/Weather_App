@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Location from "../Body/Location/index.js";
 import CurrentWeather from "../Body/Current/index";
+import ForecastWeather from "../Body/Forcast/index";
 
 class Body extends Component {
   divStyle = {
@@ -14,22 +15,19 @@ class Body extends Component {
 
   componentDidMount() {
     this.props.getWeather("CurrentData");
-    //this.props.getWeather("forecastData");
+    this.props.getWeather("forecastData");
   }
 
   componentDidUpdate(prevProps) {
-    if (
-      this.props.location.name !==
-      prevProps.location.name
-    ) {
+    if (this.props.location.name !== prevProps.location.name) {
       this.props.getWeather("CurrentData");
-      //this.props.getWeather("forecastData");
+      this.props.getWeather("forecastData");
     }
   }
 
   render() {
-    const { currentData, location } = this.props;
-    const { description }  = currentData.weather[0]
+    const { currentData, forecastData, location } = this.props;
+    const { description } = currentData.weather[0];
     const { temp, humidity, temp_max, temp_min } = currentData.main;
     const { speed } = currentData.wind;
 
@@ -45,7 +43,9 @@ class Body extends Component {
             description={description}
             humidity={humidity}
             speed={speed}
+            //currentData={currentData}
           />
+          <ForecastWeather forecastData={forecastData} />
         </div>
       </>
     );
