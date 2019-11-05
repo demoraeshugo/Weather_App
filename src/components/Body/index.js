@@ -8,49 +8,46 @@ class Body extends Component {
     borderWidth: "1px"
   };
 
-  ColorBlue = {
+  colorBlue = {
     color: "blue"
   };
 
-  ColorRed = {
-    color: "red"
-  };
-
   componentDidMount() {
-    this.props.getWeather();
+    this.props.getWeather("CurrentData");
+    //this.props.getWeather("forecastData");
   }
 
   componentDidUpdate(prevProps) {
     if (
-      this.props.currentData.location.name !==
-      prevProps.currentData.location.name
+      this.props.location.name !==
+      prevProps.location.name
     ) {
       this.props.getWeather();
     }
   }
 
   render() {
-    const { current, max, min } = this.props.currentData.temp;
-    const { description, humidity, wind } = this.props.currentData;
-    const { currentData } = this.props
-
-    const { ColorRed, divStyle, ColorBlue } = this;
+    const { currentData, location } = this.props;
+    const  description  = currentData.weather[0].description
+    const { temp, temp_max, temp_min, humidity } = currentData.main;
+    const { speed } = currentData.wind;
+  
 
     //this.renderCurrentWeather(current, max, min, description, humidity, wind.speed);
     return (
       <>
-        <Location
-          className={ColorRed}
-          currentData={currentData}
-        ></Location>
-        <CurrentWeather
-          current={current}
-          max={max}
-          min={min}
-          description={description}
-          humidity={humidity}
-          windSpeed={wind.speed}
-        />
+        <div style={this.divStyle}>
+          <span style={this.colorBlue}>Body Component</span>
+          <Location location={location}></Location>
+          <CurrentWeather
+            current={temp}
+            max={temp_max}
+            min={temp_min}
+            description={description}
+            humidity={humidity}
+            windSpeed={speed}
+          />
+        </div>
       </>
     );
   }
