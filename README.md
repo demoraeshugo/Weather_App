@@ -16,12 +16,12 @@
 
 
 ## Component Hierarchy
-- WeatherApp
-  - NavBar
-  - Dashboard
+- App
+  - Header
+  - Body
+    - Location
     - Current
-    - Forcast
-      - WeekDay
+    - Forecast
 
 ## Wireframe
 ### Web:
