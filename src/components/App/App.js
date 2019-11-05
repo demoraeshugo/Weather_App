@@ -120,15 +120,20 @@ class App extends Component {
     const location = this.getLocation(input);
 
     if (location) {
-      let updatedState = JSON.parse(JSON.stringify(this.state.currentData));
+      /*
+      let updatedState = JSON.parse(JSON.stringify(this.state.location));
 
       updatedState.location = {
         name: location.name,
         id: location.id
       };
+      */
 
       this.setState({
-        currentData: updatedState
+        location: {
+          name: location.name,
+          id: location.id
+        }
       });
     } else {
       console.log("Error: invalid city");
