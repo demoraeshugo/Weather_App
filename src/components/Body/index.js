@@ -22,7 +22,7 @@ class Body extends Component {
       this.props.location.name !==
       prevProps.location.name
     ) {
-      this.props.getWeather();
+      this.props.getWeather("CurrentData");
     }
   }
 
