@@ -17,16 +17,17 @@ const ForecastWeather = props => {
 
 
   const renderForecastData = array => {
+    //Filter array indexes so that we display only one forcast per day
+    var filtered = array.filter((val, index) => index % 8 === 0);
+
     return (
       <>
-        {array.map((array, cur) => {
+        {filtered.map((array) => {
           const { temp, temp_min, temp_max, humidity } = array.main;
           const { description } = array.weather[0];
           const { speed } = array.wind;
-
           return (
             <div key={array.dt.toString()} style={divStyle}>
-              <span>{cur}</span>
               <span>{array.dt_txt}</span>
               <div style={ColorBlue}>Forecast Weather Component</div>
               <div>
