@@ -26,9 +26,10 @@ const ForecastWeather = props => {
           const { temp, temp_min, temp_max, humidity } = array.main;
           const { description } = array.weather[0];
           const { speed } = array.wind;
+          const date = array.dt_txt.slice(0, 10);
           return (
             <div key={array.dt.toString()} style={divStyle}>
-              <span>{array.dt_txt}</span>
+              <span>{date}</span>
               <div style={ColorBlue}>Forecast Weather Component</div>
               <div>
                 The current temperature is{" "}
