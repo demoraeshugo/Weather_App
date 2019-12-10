@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "../App/App.css";
-import Header from "../Header/index.js";
-import Body from "../Body/index.js";
+import Header from "../Header";
+import Body from "../Body";
 import APIConfig from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/APIKeys.js";
 import JsonData from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/city.list.json";
-import MockCurrent from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/components/App/MockCurrent.json"
-import MockForecast from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/components/App/MockForecast.json"
+import MockCurrent from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/components/App/MockCurrent.json";
+import MockForecast from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/components/App/MockForecast.json";
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +24,6 @@ class App extends Component {
   APIConfig = APIConfig;
   cityList = JsonData;
 
-
   getWeather = async type => {
     var callType;
     const id = this.state.location.id;
@@ -40,20 +39,14 @@ class App extends Component {
 
     if (await result) {
       result.json().then(async data => {
-
-        if(type === "CurrentData") {
-          /*
-          data.main.temp = this.unitConverstion(data.main.temp)
-          data.main.temp_min = this.unitConverstion(data.main.temp_min)
-          data.main.temp_max =  this.unitConverstion(data.main.temp_max)
-          */
+        if (type === "CurrentData") {
           this.setState({
             currentData: data
-          })
+          });
         } else if (type === "forecastData") {
           this.setState({
             forecastData: data
-          })
+          });
         }
       });
     }
@@ -67,7 +60,7 @@ class App extends Component {
     return currentState;
   };
 
-  handleErrors(response) {
+  handleErrors = response => {
     if (!response.ok) {
       throw Error(response.statusText);
     }
@@ -122,7 +115,12 @@ class App extends Component {
             handleChange={handleChange}
             formValue={formValue}
           ></Header>
-          <Body currentData={currentData} forecastData={forecastData} getWeather={getWeather} location={location}></Body>
+          <Body
+            currentData={currentData}
+            forecastData={forecastData}
+            getWeather={getWeather}
+            location={location}
+          ></Body>
         </div>
       </div>
     );

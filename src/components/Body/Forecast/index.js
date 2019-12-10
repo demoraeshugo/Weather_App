@@ -1,6 +1,7 @@
 import React from "react";
 
-const ForcastWeather = props => {
+const ForecastWeather = props => {
+
   const divStyle = {
     borderStyle: "solid",
     borderWidth: "1px"
@@ -9,18 +10,24 @@ const ForcastWeather = props => {
   const ColorBlue = {
     color: "blue"
   };
+  
   const ColorRed = {
     color: "red"
   };
+
+
   const renderForecastData = array => {
     return (
       <>
-        {array.map(array => {
+        {array.map((array, cur) => {
           const { temp, temp_min, temp_max, humidity } = array.main;
           const { description } = array.weather[0];
           const { speed } = array.wind;
+
           return (
             <div key={array.dt.toString()} style={divStyle}>
+              <span>{cur}</span>
+              <span>{array.dt_txt}</span>
               <div style={ColorBlue}>Forecast Weather Component</div>
               <div>
                 The current temperature is{" "}
@@ -51,4 +58,4 @@ const ForcastWeather = props => {
   return renderForecastData(props.forecastData.list);
 };
 
-export default ForcastWeather;
+export default ForecastWeather;
