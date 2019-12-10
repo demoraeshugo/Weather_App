@@ -36,3 +36,10 @@
 
 ## Project Status as of 12.09.19
 ![](https://i.imgflip.com/3iybib.gif)
+
+Done:
+  - API Data Fetching & Rendering
+  - Components & Props
+  
+To Do:
+  - CSS
