@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Location from "../Body/Location/index.js";
 import CurrentWeather from "../Body/Current/index";
-import ForecastWeather from "../Body/Forcast/index";
+import ForecastWeather from "./Forecast/index";
 
 class Body extends Component {
   divStyle = {
