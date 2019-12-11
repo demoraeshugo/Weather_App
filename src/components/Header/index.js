@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../Header/styles.css";
+import '/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/Styles/styles.css'
 import JsonData from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/city.list.json";
 
 class Header extends Component {
@@ -12,24 +13,14 @@ class Header extends Component {
 
   cityList = JsonData;
 
-  divStyle = {
-    borderStyle: "solid",
-    borderWidth: "1px"
-  };
-
-  ColorBlue = {
-    color: "blue"
-  };
-
   width = {
     width: "150px"
   };
 
   render() {
-    const { divStyle, ColorBlue } = this;
     return (
-      <div style={divStyle}>
-        <div style={ColorBlue}>Header Component</div>
+      <div className="navBar">
+        <div>Header Component</div>
         <form autoComplete="off" onSubmit={e => this.props.handleSubmit(e)}>
           <div className="autocomplete">
             <input
