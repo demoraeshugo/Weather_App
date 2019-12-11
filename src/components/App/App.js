@@ -24,11 +24,10 @@ class App extends Component {
   APIConfig = APIConfig;
   cityList = JsonData;
 
-  getWeather = async type => {
+  APICall = async type => {
     var callType;
     const id = this.state.location.id;
     const unit = "imperial";
-
     type === "CurrentData" ? (callType = "weather") : (callType = "forecast");
 
     const result = await fetch(
@@ -37,6 +36,11 @@ class App extends Component {
       .then(this.handleErrors)
       .catch(error => console.log(error));
 
+      return result
+  }
+
+  getWeather = async type => {
+    const result = await this.APICall(type);
     if (await result) {
       result.json().then(async data => {
         if (type === "CurrentData") {

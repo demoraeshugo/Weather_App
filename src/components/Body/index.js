@@ -18,6 +18,7 @@ class Body extends Component {
     this.props.getWeather("forecastData");
   }
 
+  //If location prop changes, make call for new location ------
   componentDidUpdate(prevProps) {
     if (this.props.location.name !== prevProps.location.name) {
       this.props.getWeather("CurrentData");
@@ -43,7 +44,6 @@ class Body extends Component {
             description={description}
             humidity={humidity}
             speed={speed}
-            //currentData={currentData}
           />
           <ForecastWeather forecastData={forecastData} />
         </div>
@@ -53,29 +53,3 @@ class Body extends Component {
 }
 
 export default Body;
-
-/*
-
-<div style={divStyle}>
-          <div style={ColorBlue}>Body Component</div>
-          <div>
-            The current temperature is{" "}
-            <span className={ColorRed}>{current}° F</span>
-          </div>
-          <div>
-            High <span className={ColorRed}>{max}° F</span>
-          </div>
-          <div>
-            Low <span className={ColorRed}>{min}° F</span>
-          </div>
-          <div>
-            Conditions: <span className={ColorRed}>{description}</span>
-          </div>
-          <div>
-            Humidity: <span className={ColorRed}>{humidity}%</span>
-          </div>
-          <div>
-            Wind Speed: <span className={ColorRed}>{wind.speed}mph</span>
-          </div>
-        </div>
-*/
