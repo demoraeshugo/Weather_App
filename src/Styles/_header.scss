@@ -1,0 +1,5 @@
+@import "./colors";
+
+.navBar {
+    background-color: map-get($colors, white)
+}

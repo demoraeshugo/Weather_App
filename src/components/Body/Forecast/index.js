@@ -19,9 +19,9 @@ const ForecastWeather = props => {
     //Filter array indexes so that we display only one forcast per day
     var filtered = array.filter((val, index) => index % 8 === 0);
 
+    //Get day-of-week based on date
     function getDayOfWeek(date) {
       var dayOfWeek = new Date(date).getDay();   
-      console.log(dayOfWeek) 
       return isNaN(dayOfWeek) ? null : ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'][dayOfWeek];
     }
 
@@ -33,6 +33,7 @@ const ForecastWeather = props => {
           const { speed } = array.wind;
           const date = array.dt_txt.slice(0, 10);
           const weekDay = getDayOfWeek(date);
+          
           return (
             <div key={array.dt.toString()} style={divStyle}>
               <span>{weekDay}</span>
