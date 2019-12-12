@@ -1,14 +1,14 @@
 import React from "react";
+import "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/Styles/styles.css";
 
 const CurrentWeather = props => {
   const { current, max, min, description, humidity, speed } = props;
 
   return (
     <>
-      <div>
-        <div>Current Weather Component</div>
+      <div className="currentWeather">
         <div>
-          The current temperature is <span>{current}° F</span>
+          Current <span>{current}° F</span>
         </div>
         <div>
           High <span>{max}° F</span>

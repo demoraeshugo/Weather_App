@@ -2,12 +2,19 @@
 @import "./colors";
 @import "./body";
 @import "./wrapper";
-@import "./forecast";
+@import "./sections";
+@import "./weather-info";
+@import './components/location';
+@import './components/currentWeather';
 
 body {
     margin: 0;
 }
 
+* {
+    color: white;
+    font-family: HiraMaruPro-W4;
+}
 
 
 

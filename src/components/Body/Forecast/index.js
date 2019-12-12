@@ -23,11 +23,10 @@ const ForecastWeather = props => {
           const weekDay = getDayOfWeek(date);
           
           return (
-            <div key={array.dt.toString()}>
+            <div className="forecast" key={array.dt.toString()}>
               <span>{weekDay}</span>
-              <span>Forecast Weather Component</span>
               <div>
-                The current temperature is{" "}
+                Current{" "}
                 <span>{temp}° F</span>
               </div>
               <div>

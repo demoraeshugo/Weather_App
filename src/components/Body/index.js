@@ -27,16 +27,18 @@ class Body extends Component {
     return (
       <>
         <div className="body">
-          <Location location={location}></Location>
-          <CurrentWeather
-            current={temp}
-            max={temp_max}
-            min={temp_min}
-            description={description}
-            humidity={humidity}
-            speed={speed}
-          />
-          <div className="forecast">
+          <div className="section-main">
+            <Location location={location}></Location>
+            <CurrentWeather
+              current={temp}
+              max={temp_max}
+              min={temp_min}
+              description={description}
+              humidity={humidity}
+              speed={speed}
+            />
+          </div>
+          <div className="section-bottom">
             <ForecastWeather forecastData={forecastData} />
           </div>
         </div>
