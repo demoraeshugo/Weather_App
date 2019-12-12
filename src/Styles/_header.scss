@@ -1,5 +1,11 @@
 @import "./colors";
 
 .navBar {
-    background-color: map-get($colors, white)
+  width: 100%;
+  height: 55.5px;
+  border: solid 0.5px map-get($colors, gray);
+  background-color: map-get($colors, white);
+  *:first-child {
+      background: red;
+  }
 }

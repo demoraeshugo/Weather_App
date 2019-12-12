@@ -1,13 +1,15 @@
 {
     "version": 3,
-    "mappings": "ACEA,AAAA,OAAO,CAAC;EACJ,gBAAgB,ECAZ,OAAO;CDCd;;AGFD,AAAA,KAAK,CAAC;EACF,gBAAgB,EFHb,OAAO;CEIb",
+    "mappings": "ACEA,AAAA,OAAO,CAAC;EACN,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,MAAM;EACd,MAAM,EAAE,KAAK,CAAC,KAAK,CCJd,OAAO;EDKZ,gBAAgB,ECHV,OAAO;CDOd;;AARD,AAKE,OALK,CAKL,CAAC,AAAA,YAAY,CAAC;EACV,UAAU,EAAE,GAAG;CAClB;;AGPH,AAAA,KAAK,CAAC;EACF,gBAAgB,EFHb,OAAO;CEIb;;AEJD,AAAA,QAAQ,CAAC;EACL,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,MAAM;CAC1B;;ACND,AAAA,SAAS,CAAC;EACN,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;CACtB;;APGD,AAAA,IAAI,CAAC;EACD,MAAM,EAAE,CAAC;CACZ",
     "sources": [
         "styles.scss",
         "_header.scss",
         "_colors.scss",
         "_colors.scss",
         "_body.scss",
-        "_colors.scss"
+        "_colors.scss",
+        "_wrapper.scss",
+        "_forecast.scss"
     ],
     "names": [],
     "file": "styles.css"

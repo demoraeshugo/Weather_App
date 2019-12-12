@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../Header/styles.css";
-import '/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/Styles/styles.css'
+import '/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/Styles/styles.css';
 import JsonData from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/city.list.json";
 
 class Header extends Component {
@@ -20,7 +20,7 @@ class Header extends Component {
   render() {
     return (
       <div className="navBar">
-        <div>Header Component</div>
+        <span>Weatherly</span>
         <form autoComplete="off" onSubmit={e => this.props.handleSubmit(e)}>
           <div className="autocomplete">
             <input

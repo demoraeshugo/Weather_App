@@ -8,15 +8,6 @@ class Location extends Component {
     };
   }
 
-  divStyle = {
-    borderStyle: "solid",
-    borderWidth: "1px"
-  };
-
-  colorBlue = {
-    color: "blue",
-  };
-
   getDate() {
     const weekdays = [
       "Sunday",
@@ -57,15 +48,15 @@ class Location extends Component {
   componentDidMount() {
     this.getDate();
   }
- 
+
   render() {
-    const {name} = this.props.location
-    const {date} = this.state
+    const { name } = this.props.location;
+    const { date } = this.state;
 
     return (
       <>
-        <div style={this.divStyle}>
-          <span style={this.colorBlue}>Location Component</span>
+        <div>
+          <span>Location Component</span>
           <div>{name}</div>
           <div>{date}</div>
         </div>
