@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import Location from "../Body/Location/index.js";
 import CurrentWeather from "../Body/Current/index";
 import ForecastWeather from "./Forecast/index";
-import '/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/Styles/styles.css'
+import "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/Styles/styles.css";
 
 class Body extends Component {
-
   componentDidMount() {
     this.props.getWeather("CurrentData");
     this.props.getWeather("forecastData");
@@ -28,7 +27,6 @@ class Body extends Component {
     return (
       <>
         <div className="body">
-          <span>Body Component</span>
           <Location location={location}></Location>
           <CurrentWeather
             current={temp}
@@ -38,7 +36,9 @@ class Body extends Component {
             humidity={humidity}
             speed={speed}
           />
-          <ForecastWeather forecastData={forecastData} />
+          <div className="forecast">
+            <ForecastWeather forecastData={forecastData} />
+          </div>
         </div>
       </>
     );

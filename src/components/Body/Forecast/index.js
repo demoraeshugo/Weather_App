@@ -1,19 +1,7 @@
 import React from "react";
+import '/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/Styles/styles.css'
 
 const ForecastWeather = props => {
-
-  const divStyle = {
-    borderStyle: "solid",
-    borderWidth: "1px"
-  };
-
-  const ColorBlue = {
-    color: "blue"
-  };
-  
-  const ColorRed = {
-    color: "red"
-  };
 
   const renderForecastData = array => {
     //Filter array indexes so that we display only one forcast per day
@@ -35,27 +23,27 @@ const ForecastWeather = props => {
           const weekDay = getDayOfWeek(date);
           
           return (
-            <div key={array.dt.toString()} style={divStyle}>
+            <div key={array.dt.toString()}>
               <span>{weekDay}</span>
-              <div style={ColorBlue}>Forecast Weather Component</div>
+              <span>Forecast Weather Component</span>
               <div>
                 The current temperature is{" "}
-                <span style={ColorRed}>{temp}° F</span>
+                <span>{temp}° F</span>
               </div>
               <div>
-                High <span style={ColorRed}>{temp_max}° F</span>
+                High <span>{temp_max}° F</span>
               </div>
               <div>
-                Low <span style={ColorRed}>{temp_min}° F</span>
+                Low <span>{temp_min}° F</span>
               </div>
               <div>
-                Conditions: <span style={ColorRed}>{description}</span>
+                Conditions: <span>{description}</span>
               </div>
               <div>
-                Humidity: <span style={ColorRed}>{humidity}%</span>
+                Humidity: <span>{humidity}%</span>
               </div>
               <div>
-                Wind Speed: <span style={ColorRed}>{speed}mph</span>
+                Wind Speed: <span>{speed}mph</span>
               </div>
             </div>
           );

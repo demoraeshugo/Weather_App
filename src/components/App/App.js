@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../App/App.css";
 import Header from "../Header";
 import Body from "../Body";
 import APIConfig from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/APIKeys.js";
@@ -112,8 +111,7 @@ class App extends Component {
     const { getWeather, handleSubmit, handleChange } = this;
 
     return (
-      <div className="Wrapper">
-        <div className="Wrapper-Child">
+      <div className="wrapper">
           <Header
             handleSubmit={handleSubmit}
             handleChange={handleChange}
@@ -125,7 +123,6 @@ class App extends Component {
             getWeather={getWeather}
             location={location}
           ></Body>
-        </div>
       </div>
     );
   }
