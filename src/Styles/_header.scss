@@ -5,7 +5,16 @@
   height: 55.5px;
   border: solid 0.5px map-get($colors, gray);
   background-color: map-get($colors, white);
-  *:first-child {
-      background: red;
+  display: flex;
+  flex-direction: row;
+  span:first-child {
+    color: map-get($colors, gray);
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.7;
+    letter-spacing: normal;
+    text-align: left;
   }
 }

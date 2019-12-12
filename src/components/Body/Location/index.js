@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/Styles/styles.css";
 
 class Location extends Component {
   constructor(props) {
@@ -55,10 +56,9 @@ class Location extends Component {
 
     return (
       <>
-        <div>
-          <span>Location Component</span>
-          <div>{name}</div>
-          <div>{date}</div>
+        <div className="location">
+          <div id="cityName">{name}</div>
+          <div id="date">{date}</div>
         </div>
       </>
     );
