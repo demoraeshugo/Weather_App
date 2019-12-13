@@ -1,5 +1,8 @@
 import React from "react";
 import "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/Styles/styles.css";
+import { ReactComponent as DewDropIcon } from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/assets/tint-solid.svg";
+import { ReactComponent as WindIcon } from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/assets/wind-solid.svg";
+import { ReactComponent as ThermometerIcon } from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/assets/thermometer-half-solid.svg";
 
 const CurrentWeather = props => {
   const { current, max, min, description, humidity, speed } = props;
@@ -15,6 +18,11 @@ const CurrentWeather = props => {
         </div>
         <div>
           Low <span>{min}° F</span>
+        </div>
+        <div className="icons">
+          <DewDropIcon />
+          <ThermometerIcon />
+          <WindIcon />
         </div>
         <div>
           Conditions: <span>{description}</span>

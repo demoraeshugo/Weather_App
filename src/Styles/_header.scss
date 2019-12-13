@@ -9,6 +9,8 @@
   flex-direction: row;
   span:first-child {
     color: map-get($colors, gray);
+    width: 200px;
+    margin-left: 6px;
     font-size: 20px;
     font-weight: normal;
     font-stretch: normal;
