@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header";
 import Body from "../Body";
-import APIConfig from "../../APIKeys";
+//import APIConfig from "../../APIKeys";
 import JsonData from "../../city.list.json";
 import MockCurrent from "./MockCurrent.json";
 import MockForecast from "./MockForecast.json";
@@ -19,18 +19,19 @@ class App extends Component {
       formValue: ""
     };
   }
-
-  APIConfig = APIConfig;
   cityList = JsonData;
 
   APICall = async type => {
+    const APIkey = process.env.REACT_APP_API_KEY;
     var callType;
     const id = this.state.location.id;
     const unit = "imperial";
     type === "CurrentData" ? (callType = "weather") : (callType = "forecast");
 
+    console.log(APIkey)
+
     const result = await fetch(
-      `http://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${this.APIConfig.key}`
+      `http://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${APIkey}`
     )
       .then(this.handleErrors)
       .catch(error => console.log(error));
