@@ -28,8 +28,6 @@ class App extends Component {
     const unit = "imperial";
     type === "CurrentData" ? (callType = "weather") : (callType = "forecast");
 
-    console.log(APIkey)
-
     const result = await fetch(
       `http://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${APIkey}`
     )
