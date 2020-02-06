@@ -1,9 +1,9 @@
 import React from "react";
-import "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/Styles/styles.css";
-import { ReactComponent as DewDropIcon } from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/assets/tint-solid.svg";
-import { ReactComponent as WindIcon } from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/assets/wind-solid.svg";
-import { ReactComponent as ThermometerIcon } from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/assets/thermometer-half-solid.svg";
-import { ReactComponent as CurrentWeatherIcon } from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/assets/cloud-sun-solid.svg";
+import "../../../Styles/styles.css"
+import { ReactComponent as DewDropIcon } from "../../../assets/tint-solid.svg";
+import { ReactComponent as WindIcon } from "../../../assets/wind-solid.svg";
+import { ReactComponent as ThermometerIcon } from "../../../assets/thermometer-half-solid.svg";
+import { ReactComponent as CurrentWeatherIcon } from "../../../assets/cloud-sun-solid.svg";
 
 const CurrentWeather = props => {
   var { current } = props;

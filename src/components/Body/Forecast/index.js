@@ -1,5 +1,5 @@
 import React from "react";
-import '/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/Styles/styles.css'
+import '../../../Styles/styles.css'
 
 const ForecastWeather = props => {
 
