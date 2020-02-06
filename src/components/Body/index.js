@@ -27,7 +27,7 @@ class Body extends Component {
     return (
       <>
         <div className="body">
-          <div className="section-main">
+          <div className="section-main flex-columns">
             <Location location={location}></Location>
             <CurrentWeather
               current={temp}
