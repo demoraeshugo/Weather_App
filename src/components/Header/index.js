@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../Header/styles.css";
 import '/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/Styles/styles.css';
-import JsonData from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/city.list.json";
 
 class Header extends Component {
   constructor(props) {
@@ -10,8 +9,6 @@ class Header extends Component {
       input: ""
     };
   }
-
-  cityList = JsonData;
 
   width = {
     width: "150px"
