@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "../Header";
 import Body from "../Body";
 //import APIConfig from "../../APIKeys";
-import JsonData from "../../city.list.json";
+import JsonData from "./CityList.json";
 import MockCurrent from "./MockCurrent.json";
 import MockForecast from "./MockForecast.json";
 
@@ -19,6 +19,7 @@ class App extends Component {
       formValue: ""
     };
   }
+  
   cityList = JsonData;
 
   APICall = async type => {
