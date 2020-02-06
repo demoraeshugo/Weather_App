@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Location from "../Body/Location/index.js";
 import CurrentWeather from "../Body/Current/index";
 import ForecastWeather from "./Forecast/index";
-import "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/Styles/styles.css";
+import "../../Styles/styles.css";
 
 class Body extends Component {
   componentDidMount() {
