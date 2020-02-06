@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Header from "../Header";
 import Body from "../Body";
-import APIConfig from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/APIKeys.js";
-import JsonData from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/city.list.json";
-import MockCurrent from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/components/App/MockCurrent.json";
-import MockForecast from "/Users/School/Desktop/CS_Projects/Weather_App/weather_app/src/components/App/MockForecast.json";
+import APIConfig from "../../APIKeys";
+import JsonData from "../../city.list.json";
+import MockCurrent from "./MockCurrent.json";
+import MockForecast from "./MockForecast.json";
 
 class App extends Component {
   constructor(props) {
