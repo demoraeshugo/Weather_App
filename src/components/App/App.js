@@ -29,7 +29,7 @@ class App extends Component {
     type === "CurrentData" ? (callType = "weather") : (callType = "forecast");
 
     const result = await fetch(
-      `http://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${APIkey}`
+      `https://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${APIkey}`
     )
       .then(this.handleErrors)
       .catch(error => console.log(error));
