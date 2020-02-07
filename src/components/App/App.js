@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header";
 import Body from "../Body";
-//import APIConfig from "../../APIKeys";
-import JsonData from "./CityList.json";
+import JsonData from "./SmallCityList.json";
 import MockCurrent from "./MockCurrent.json";
 import MockForecast from "./MockForecast.json";
 
