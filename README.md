@@ -32,8 +32,7 @@ I recently learned and fell in love with AWS Amplify, the current state of my pr
 Done:
   - Integrated a live workflow using AWS Amplify
     - NOTE: The AWS version is not fetching API data currently (Dev version is)
-    - REASON: API Key has not been added, further research required on my end regarding this subject 
-
+    - REASON: I need to configure Node.Js enviornment to store API key
 To Do:
   - More CSS work is required
   - Current CSS is static
