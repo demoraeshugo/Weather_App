@@ -13,7 +13,7 @@
   - Maintaining clean state management in a more complex application
 - Reinforce HTML & CSS knowledge
 
-## Please note: This is a project that I am working on purely on my own leasure, I have made plenty of mistakes, but more importantly they've helped me learn right from wrong  
+## Please note: This is a project that I am working on soley at my own leasure
 
 ## Generalized Overview of Component Hierarchy
 - App
