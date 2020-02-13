@@ -6,15 +6,6 @@
 ![](http://bestanimations.com/Site/Construction/under-construction-gif-6.gif)
 ![](http://bestanimations.com/Site/Construction/under-construction-gif-6.gif)
 
-## Purpose
-- Reinforce React basics 
-- Learn intermediate React: 
-  - Asynchronous data & functions
-  - Maintaining clean state management in a more complex application
-- Reinforce HTML & CSS knowledge
-
-## Please note: This is a project that I am working on soley at my own leasure
-
 ## Generalized Overview of Component Hierarchy
 - App
   - Header
@@ -25,6 +16,13 @@
     - Forecast
   - Footer
 
+## Purpose
+- Reinforce React basics 
+- Learn intermediate React: 
+  - Asynchronous data & functions
+  - Maintaining clean state management in a more complex application
+- Reinforce HTML & CSS knowledge
+
 ## Project Status as of 02.10.20
 
 I recently learned and fell in love with AWS Amplify, the current state of my project can be seen by clicking the link above
@@ -32,8 +30,9 @@ I recently learned and fell in love with AWS Amplify, the current state of my pr
 Done:
   - Integrated a live workflow using AWS Amplify
     - NOTE: The AWS version is not fetching API data currently (Dev version is)
-    - REASON: I need to configure Node.Js enviornment to store API key
+
 To Do:
+  - Create Node rest API to serve private keys to front end
   - More CSS work is required
   - Current CSS is static
   - Goal is to have responsive design that matches the mobile wireframe (below)
