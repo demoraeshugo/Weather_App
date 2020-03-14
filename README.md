@@ -6,22 +6,46 @@
 ![](http://bestanimations.com/Site/Construction/under-construction-gif-6.gif)
 ![](http://bestanimations.com/Site/Construction/under-construction-gif-6.gif)
 
-## Purpose
-- Weather app that uses a 3rd party API to display current and future weather data based on user location.
-
-## Goals
-- Clean scalable componenets
-- API usage
-- Room for expansion 
-
-
-## Component Hierarchy
+## Generalized Overview of Component Hierarchy
 - App
   - Header
+    - Search Bar
   - Body
     - Location
     - Current
     - Forecast
+  - Footer
+
+## Purpose
+- Reinforce React basics 
+- Learn intermediate React: 
+  - Asynchronous data & functions
+  - Maintaining clean state management in a more complex application
+- Reinforce HTML & CSS knowledge
+
+## Project Status as of 02.10.20
+
+I recently learned and fell in love with AWS Amplify, the current state of my project can be seen by clicking the link above
+
+Done:
+  - Integrated a live workflow using AWS Amplify
+    - NOTE: The AWS version is not fetching API data currently (Dev version is)
+
+To Do:
+  - Create Node rest API to serve private keys to front end
+  - More CSS work is required
+  - Current CSS is static
+  - Goal is to have responsive design that matches the mobile wireframe (below)
+  
+## Project Status as of 12.09.19
+![](https://i.imgflip.com/3iybib.gif)
+
+Done:
+  - API Data Fetching & Rendering
+  - Components & Props
+  
+To Do:
+  - CSS
 
 ## Wireframe
 ### Web:
@@ -32,14 +56,3 @@
 ### Mobile:
 
 ![Mobile_Frame@2x](https://user-images.githubusercontent.com/45345315/57752418-1aaaba80-76b7-11e9-8c91-10666129ff06.png)
-
-
-## Project Status as of 12.09.19
-![](https://i.imgflip.com/3iybib.gif)
-
-Done:
-  - API Data Fetching & Rendering
-  - Components & Props
-  
-To Do:
-  - CSS
