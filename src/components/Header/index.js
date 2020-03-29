@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../Header/styles.css";
+import SearchBar from "./SearchBar/index";
 import '../../Styles/styles.css'
 
 class Header extends Component {
@@ -30,9 +31,15 @@ class Header extends Component {
           </div>
           <input type="submit"></input>
         </form>
+        <SearchBar></SearchBar>
       </div>
     );
   }
 }
 
 export default Header;
+
+/*
+
+
+*/
