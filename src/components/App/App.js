@@ -22,7 +22,7 @@ class App extends Component {
   cityList = JsonData;
 
   APICall = async type => {
-    const APIkey = process.env.APIKey;
+    const APIkey = process.env.REACT_APP_API_KEY;
     var callType;
     const id = this.state.location.id;
     const unit = "imperial";
