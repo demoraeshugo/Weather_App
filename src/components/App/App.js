@@ -40,7 +40,6 @@ class App extends Component {
   getWeather = async type => {
     const result = await this.APICall(type);
     if (await result) {
-
       result.json().then(async data => {
         if (type === "CurrentData") {
           this.setState({

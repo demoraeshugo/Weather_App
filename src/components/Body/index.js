@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Location from "../Body/Location/index.js";
-import CurrentWeather from "../Body/Current/index";
+import Location from "./Location/index.js";
+import CurrentWeather from "./Current/index";
 import ForecastWeather from "./Forecast/index";
 import "../../Styles/styles.css";
 
