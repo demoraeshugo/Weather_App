@@ -10,6 +10,11 @@
             "StackName": "amplify-weatherapp-backend-222644",
             "StackId": "arn:aws:cloudformation:us-east-2:831217530463:stack/amplify-weatherapp-backend-222644/e6e232a0-722d-11ea-b877-0a7adbd72fc8",
             "AmplifyAppId": "d1hm1zktgm7z6s"
+        },
+        "categories": {
+            "auth": {
+                "cognitoc3a94c85": {}
+            }
         }
     }
 }
