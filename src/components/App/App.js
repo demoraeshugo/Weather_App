@@ -4,7 +4,9 @@ import Body from "../Body";
 //import JsonData from "./SmallCityList.json";
 import MockCurrent from "./MockCurrent.json";
 import MockForecast from "./MockForecast.json";
+var AWS = require('aws-sdk');
 
+//const lambda = new AWS.Lambda();
 
 class App extends Component {
   constructor(props) {
@@ -23,13 +25,16 @@ class App extends Component {
   //cityList = JsonData;
 
   getSuggestions = async () => {
-    const result = await fetch(
-      'https://hpu8zj17c2.execute-api.us-east-2.amazonaws.com'
-    )
-      .then(this.handleErrors)
-      .catch(error => console.log(error));
-
-    return result;
+    var params = {
+      ClientContext: "weather_app", 
+      FunctionName: "getSuggestions", 
+      InvocationType: "Event", 
+      LogType: "Tail", 
+      Payload: {}, 
+      Qualifier: "1"
+    }
+    //const result = await lambda.invoke(params).promise();
+    //return result;
   };
 
   cityList = this.getSuggestions();
