@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header";
 import Body from "../Body";
-import JsonData from "./SmallCityList.json";
+//import JsonData from "./SmallCityList.json";
 import MockCurrent from "./MockCurrent.json";
 import MockForecast from "./MockForecast.json";
 
@@ -18,10 +18,22 @@ class App extends Component {
       formValue: ""
     };
   }
-  
-  cityList = JsonData;
 
-  APICall = async type => {
+  //cityList = JsonData;
+
+  getSuggestions = async () => {
+    const result = await fetch(
+      'https://hpu8zj17c2.execute-api.us-east-2.amazonaws.com'
+    )
+      .then(this.handleErrors)
+      .catch(error => console.log(error));
+
+    return result;
+  };
+
+  cityList = this.getSuggestions();
+
+  weatherAPICall = async type => {
     const APIkey = process.env.REACT_APP_API_KEY;
     var callType;
     const id = this.state.location.id;
@@ -34,11 +46,11 @@ class App extends Component {
       .then(this.handleErrors)
       .catch(error => console.log(error));
 
-      return result
-  }
+    return result;
+  };
 
   getWeather = async type => {
-    const result = await this.APICall(type);
+    const result = await this.weatherAPICall(type);
     if (await result) {
       result.json().then(async data => {
         if (type === "CurrentData") {
@@ -67,7 +79,7 @@ class App extends Component {
       throw Error(response.statusText);
     }
     return response;
-  }
+  };
 
   unitConverstion = k => {
     return Math.round(((k - 273.15) * 9) / 5 + 32);
@@ -111,17 +123,17 @@ class App extends Component {
 
     return (
       <div className="wrapper">
-          <Header
-            handleSubmit={handleSubmit}
-            handleChange={handleChange}
-            formValue={formValue}
-          ></Header>
-          <Body
-            currentData={currentData}
-            forecastData={forecastData}
-            getWeather={getWeather}
-            location={location}
-          ></Body>
+        <Header
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          formValue={formValue}
+        ></Header>
+        <Body
+          currentData={currentData}
+          forecastData={forecastData}
+          getWeather={getWeather}
+          location={location}
+        ></Body>
       </div>
     );
   }
