@@ -10,6 +10,11 @@
             "StackName": "amplify-weatherly-dev-01544",
             "StackId": "arn:aws:cloudformation:us-east-2:831217530463:stack/amplify-weatherly-dev-01544/75c523e0-73cf-11ea-8110-060a55e3d44e",
             "AmplifyAppId": "d1avqrcyilu4a1"
+        },
+        "categories": {
+            "auth": {
+                "weatherlye65fe737": {}
+            }
         }
     }
 }
