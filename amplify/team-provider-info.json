@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-weatherly-dev-232224-authRole",
+            "UnauthRoleArn": "arn:aws:iam::831217530463:role/amplify-weatherly-dev-232224-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::831217530463:role/amplify-weatherly-dev-232224-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-weatherly-dev-232224-deployment",
+            "UnauthRoleName": "amplify-weatherly-dev-232224-unauthRole",
+            "StackName": "amplify-weatherly-dev-232224",
+            "StackId": "arn:aws:cloudformation:us-east-2:831217530463:stack/amplify-weatherly-dev-232224/02ea3ba0-73c8-11ea-acb6-0a18862e0c0c",
+            "AmplifyAppId": "dwlil54q5r47q"
+        }
+    }
+}
