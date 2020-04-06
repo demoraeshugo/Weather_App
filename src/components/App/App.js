@@ -133,7 +133,7 @@ class App extends Component {
 
   render() {
     const { forecastData, currentData, formValue, location } = this.state;
-    const { getWeather, handleSubmit, handleChange, getSuggestions } = this;
+    const { getWeather, handleSubmit, handleChange, getSuggestions, cityList } = this;
 
     getSuggestions()
     return (
@@ -142,6 +142,7 @@ class App extends Component {
           handleSubmit={handleSubmit}
           handleChange={handleChange}
           formValue={formValue}
+          cityList={cityList}
         ></Header>
         <Body
           currentData={currentData}

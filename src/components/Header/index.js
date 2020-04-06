@@ -16,14 +16,15 @@ class Header extends Component {
   };
 
   render() {
+    const { handleSubmit, handleChange, formValue, cityList } = this.props
     return (
       <div className="navBar">
         <span>Weatherly</span>
-        <form autoComplete="off" onSubmit={e => this.props.handleSubmit(e)}>
+        <form autoComplete="off" onSubmit={e => handleSubmit(e)}>
           <div className="autocomplete">
             <input
-              onChange={e => this.props.handleChange(e)}
-              value={this.props.formValue}
+              onChange={e => handleChange(e)}
+              value={formValue}
               id="Location"
               type="text"
               name="Location"
@@ -31,15 +32,10 @@ class Header extends Component {
           </div>
           <input type="submit"></input>
         </form>
-        <SearchBar></SearchBar>
+        <SearchBar cityList={cityList}></SearchBar>
       </div>
     );
   }
 }
 
 export default Header;
-
-/*
-
-
-*/
