@@ -99,11 +99,11 @@ class App extends Component {
 
   getLocation = (location) => {
     const { cityList } = this;
-      for (let i = 0; i < cityList.length; i++) {
-        if (cityList[i].name === location) {
-          return cityList[i];
-        }
+    for (let i = 0; i < cityList.length; i++) {
+      if (cityList[i].name === location) {
+        return cityList[i];
       }
+    }
   };
 
   handleChange = (event) => {
@@ -132,7 +132,13 @@ class App extends Component {
 
   render() {
     const { forecastData, currentData, formValue, location } = this.state;
-    const { getWeather, handleSubmit, handleChange, getSuggestions, cityList } = this;
+    const {
+      getWeather,
+      handleSubmit,
+      handleChange,
+      getSuggestions,
+      cityList,
+    } = this;
 
     return (
       <div className="wrapper">
