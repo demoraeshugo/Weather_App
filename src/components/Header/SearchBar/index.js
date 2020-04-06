@@ -1,7 +1,7 @@
 import Autosuggest from 'react-autosuggest';
 import React, { Component } from "react";
-
-const cities = [{
+/*
+const tester = [{
     "id": 5128581,
     "name": "New York City",
     "state": "NY",
@@ -11,6 +11,8 @@ const cities = [{
       "lat": 40.714272
     }
   },]
+
+const cities = this.props.cityList
 
 const getSuggestions = value => {
   const inputValue = value.trim().toLowerCase();
@@ -23,11 +25,11 @@ const getSuggestions = value => {
       city.name.toLowerCase().slice(0, inputLength) === inputValue
     );
   }
-  /*
+
   return inputLength === 0 ? [] : cities.filter(city =>
     city.name.toLowerCase().slice(0, inputLength) === inputValue
   );
-  */
+
 };
  
 // When suggestion is clicked, Autosuggest needs to populate the input
@@ -42,6 +44,8 @@ const renderSuggestion = suggestion => (
   </div>
 );
 
+*/
+
 class SearchBar extends Component {
     constructor(props) {
     super(props);
@@ -52,6 +56,37 @@ class SearchBar extends Component {
     };
   }
 
+  cities = this.props.cityList
+  
+  componentDidMount() {
+    this.cities = this.props.cityList;
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.cityList !== prevProps.cityList) {
+      this.cities = this.props.cityList
+    }
+  }
+
+  getSuggestions = value => {
+    const inputValue = value.trim().toLowerCase();
+    const inputLength = inputValue.length;
+    
+    if(inputLength === 0) {
+      return []
+    } else {
+      return this.cities.filter(city =>
+        city.name.toLowerCase().slice(0, inputLength) === inputValue
+      );
+    }
+  }
+
+  renderSuggestion = suggestion => (
+    <div>
+      {suggestion.name}
+    </div>
+  );
+
   onChange = (event, { newValue, newID }) => {
     this.setState({
       value: newValue,
@@ -61,7 +96,7 @@ class SearchBar extends Component {
 
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
-      suggestions: getSuggestions(value)
+      suggestions: this.getSuggestions(value)
     });
   };
 
@@ -87,8 +122,8 @@ class SearchBar extends Component {
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
+        getSuggestionValue={this.getSuggestionValue}
+        renderSuggestion={this.renderSuggestion}
         inputProps={inputProps}
       />
     );
