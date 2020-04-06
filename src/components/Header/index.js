@@ -16,7 +16,7 @@ class Header extends Component {
   };
 
   render() {
-    const { handleSubmit, handleChange, formValue, cityList } = this.props
+    const { handleSubmit, handleChange, formValue, cityList, getSuggestions } = this.props
     return (
       <div className="navBar">
         <span>Weatherly</span>
@@ -32,7 +32,10 @@ class Header extends Component {
           </div>
           <input type="submit"></input>
         </form>
-        <SearchBar cityList={cityList}></SearchBar>
+        <SearchBar 
+        cityList={cityList}
+        getSuggestions={getSuggestions}>
+        </SearchBar>
       </div>
     );
   }
