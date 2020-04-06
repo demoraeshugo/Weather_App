@@ -73,7 +73,6 @@ class App extends Component {
     const result = await APICall("getSuggestions");
     if (await result) {
       result.json().then(async (data) => {
-        console.log(data);
         this.cityList = data;
       });
     }
