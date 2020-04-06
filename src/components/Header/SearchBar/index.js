@@ -1,4 +1,4 @@
-import Autosuggest from 'react-autosuggest';
+import Autosuggest from "react-autosuggest";
 import React, { Component } from "react";
 /*
 const tester = [{
@@ -47,83 +47,88 @@ const renderSuggestion = suggestion => (
 */
 
 class SearchBar extends Component {
-    constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       value: "",
       id: 0,
-      suggestions: []
+      suggestions: [],
     };
   }
 
-  cities = this.props.cityList
-  
+  cities = this.props.cityList;
+
   componentDidMount() {
-    this.cities = this.props.cityList;
+    this.props.getSuggestions();
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.cityList !== prevProps.cityList) {
-      this.cities = this.props.cityList
+      this.cities = this.props.cityList;
     }
   }
 
-  getSuggestions = value => {
+  getSuggestions = (value) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
-    
-    if(inputLength === 0) {
-      return []
+
+    if (inputLength === 0) {
+      return [];
     } else {
-      return this.cities.filter(city =>
-        city.name.toLowerCase().slice(0, inputLength) === inputValue
+      return this.cities.filter(
+        (city) => city.name.toLowerCase().slice(0, inputLength) === inputValue
       );
     }
-  }
+  };
 
-  renderSuggestion = suggestion => (
-    <div>
-      {suggestion.name}
-    </div>
-  );
+  getSuggestionValue = (suggestion) => suggestion.name;
+
+  renderSuggestion = (suggestion) => <div>{suggestion.name}</div>;
 
   onChange = (event, { newValue, newID }) => {
     this.setState({
       value: newValue,
-      id: newID
+      id: newID,
     });
   };
 
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
-      suggestions: this.getSuggestions(value)
+      suggestions: this.getSuggestions(value),
     });
   };
 
   onSuggestionsClearRequested = () => {
     this.setState({
-      suggestions: []
+      suggestions: [],
     });
   };
 
   render() {
     const { value, suggestions } = this.state;
- 
+    const {
+      onChange,
+      onSuggestionsFetchRequested,
+      onSuggestionsClearRequested,
+      getSuggestionValue,
+      renderSuggestion,
+    } = this;
+
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
-      placeholder: 'Type city name',
+      placeholder: "Type city name",
       value,
-      onChange: this.onChange
+      onChange: onChange,
     };
- 
+
     // Finally, render it!
     return (
       <Autosuggest
         suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={this.getSuggestionValue}
-        renderSuggestion={this.renderSuggestion}
+        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+        onSuggestionsClearRequested={onSuggestionsClearRequested}
+        getSuggestionValue={getSuggestionValue}
+        renderSuggestion={renderSuggestion}
         inputProps={inputProps}
       />
     );

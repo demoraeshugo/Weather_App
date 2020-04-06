@@ -135,7 +135,6 @@ class App extends Component {
     const { forecastData, currentData, formValue, location } = this.state;
     const { getWeather, handleSubmit, handleChange, getSuggestions, cityList } = this;
 
-    getSuggestions()
     return (
       <div className="wrapper">
         <Header
@@ -143,6 +142,7 @@ class App extends Component {
           handleChange={handleChange}
           formValue={formValue}
           cityList={cityList}
+          getSuggestions={getSuggestions}
         ></Header>
         <Body
           currentData={currentData}
