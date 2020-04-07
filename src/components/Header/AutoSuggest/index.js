@@ -10,17 +10,6 @@ class SearchBar extends Component {
       id: 0,
       suggestions: [],
     };
-    this.cities = this.props.cityList;
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.cityList !== prevProps.cityList) {
-      this.cities = this.props.cityList;
-    }
-  }
-
-  componentDidMount() {
-    this.cities = this.props.cityList
   }
 
   getSuggestionValue = (suggestion) => suggestion.name;
