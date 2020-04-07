@@ -15,10 +15,9 @@ class App extends Component {
       forecastData: MockForecast,
       currentData: MockCurrent,
       formValue: "",
+      cityList: []
     };
   }
-
-  cityList;
 
   APICall = async (type) => {
     var callType;
@@ -43,6 +42,7 @@ class App extends Component {
       default:
         console.log("Unhandled API call type");
     }
+
     const result = await fetch(url)
       .then(this.handleErrors)
       .catch((error) => console.log(error));
@@ -70,12 +70,12 @@ class App extends Component {
 
   getSuggestions = async () => {
     const { APICall } = this;
-    const result = await APICall("getSuggestions");
-    if (await result) {
-      result.json().then(async (data) => {
-        this.cityList = data;
-      });
-    }
+    await APICall("getSuggestions")
+    .then((result) => result.json().then(async (data) => {
+      this.setState({
+        cityList: data
+      })
+    }))
   };
 
   getCurrentState = (type) => {
@@ -131,13 +131,12 @@ class App extends Component {
   };
 
   render() {
-    const { forecastData, currentData, formValue, location } = this.state;
+    const { forecastData, currentData, formValue, location, cityList } = this.state;
     const {
       getWeather,
       handleSubmit,
       handleChange,
-      getSuggestions,
-      cityList,
+      getSuggestions
     } = this;
 
     return (

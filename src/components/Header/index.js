@@ -1,26 +1,45 @@
 import React, { Component } from "react";
 import "../Header/styles.css";
-import SearchBar from "./SearchBar/index";
-import '../../Styles/styles.css'
+import SearchBar from "./AutoSuggest/index";
+//import '../../Styles/styles.css'
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: ""
+      input: "",
     };
   }
 
   width = {
-    width: "150px"
+    width: "150px",
   };
 
   render() {
-    const { handleSubmit, handleChange, formValue, cityList, getSuggestions } = this.props
+    const {
+      handleSubmit,
+      handleChange,
+      formValue,
+      getSuggestions,
+      cityList
+    } = this.props;
     return (
       <div className="navBar">
         <span>Weatherly</span>
-        <form autoComplete="off" onSubmit={e => handleSubmit(e)}>
+        <SearchBar
+          cityList={cityList}
+          getSuggestions={getSuggestions}
+        ></SearchBar>
+      </div>
+    );
+  }
+}
+
+export default Header;
+
+/*
+
+ <form autoComplete="off" onSubmit={e => handleSubmit(e)}>
           <div className="autocomplete">
             <input
               onChange={e => handleChange(e)}
@@ -32,13 +51,4 @@ class Header extends Component {
           </div>
           <input type="submit"></input>
         </form>
-        <SearchBar 
-        cityList={cityList}
-        getSuggestions={getSuggestions}>
-        </SearchBar>
-      </div>
-    );
-  }
-}
-
-export default Header;
+*/

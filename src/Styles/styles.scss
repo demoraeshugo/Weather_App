@@ -6,6 +6,7 @@
 @import "./weather-info";
 @import './components/location';
 @import './components/currentWeather';
+@import './components/autoSuggest';
 
 body {
     margin: 0;
@@ -15,7 +16,7 @@ body {
 
 * {
     border: .5px solid red;
-    color: white;
+    color: black;
     font-family: HiraMaruPro-W4;
 }
 
