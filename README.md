@@ -9,12 +9,11 @@
 ## Generalized Overview of Component Hierarchy
 - App
   - Header
-    - Search Bar
+    - AutoSuggest
   - Body
     - Location
     - Current
     - Forecast
-  - Footer
 
 ## Purpose
 - Reinforce React basics 
@@ -23,12 +22,28 @@
   - Maintaining clean state management in a more complex application
 - Reinforce HTML & CSS knowledge
 
+## Project Status as of 04.07.20
+
+Recently discovered AWS serverless architecture. I've been adding more and more AWS feaures into this app as it progresses.  
+
+Major changes:
+  - Setup an AWS backend 
+  - Using Lambda to access and S3 bucket with JSON file containing list of cities and id's which this API can use
+  - JSON list is displayed as "suggestions" as a user types into the search bar
+
+All major features are functional and in place
+
+To Do:
+  - CSS :( 
+  - Currently using a JSON file a fraction of the size of the intended one for dev purposes
+  - Need to implement real file and look at how to optimize configurations
+
 ## Project Status as of 02.10.20
 
 I recently learned and fell in love with AWS Amplify, the current state of my project can be seen by clicking the link above
 
 Done:
-  - Integrated a live workflow using AWS Amplify
+  - Integrated continuous deployment AWS Amplify
     - NOTE: The AWS version is not fetching API data currently (Dev version is)
 
 To Do:
