@@ -17,7 +17,7 @@ class SearchBar extends Component {
   renderSuggestion = (suggestion) => <div>{suggestion.name}</div>;
 
   onSuggestionsFetchRequested = ({ value }) => {
-      this.loadSuggestions(value)
+    this.loadSuggestions(value);
   };
 
   onSuggestionsClearRequested = () => {
@@ -27,13 +27,14 @@ class SearchBar extends Component {
   };
 
   async loadSuggestions(value) {
-    await this.props.getSuggestions()
-    .then(console.log(this.props.cityList))
-    .then(
-      this.setState({
-        suggestions: this.getSuggestions(value),
-      })
-    );
+    await this.props
+      .getSuggestions()
+      .then(console.log(this.props.cityList))
+      .then(
+        this.setState({
+          suggestions: this.getSuggestions(value),
+        })
+      );
   }
 
   getSuggestions = (value) => {
@@ -51,7 +52,7 @@ class SearchBar extends Component {
 
   onChange = (event, { newValue }) => {
     this.setState({
-      value: newValue
+      value: newValue,
     });
   };
 
@@ -64,6 +65,7 @@ class SearchBar extends Component {
       getSuggestionValue,
       renderSuggestion,
     } = this;
+    const { onSuggestionSelected } = this.props
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
@@ -81,9 +83,28 @@ class SearchBar extends Component {
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps}
+        onSuggestionSelected={onSuggestionSelected}
       />
     );
   }
 }
 
 export default SearchBar;
+
+/*
+ <form autoComplete="off" onSubmit={(e) => handleSubmit(e)}>
+          <div>
+            <input
+              onChange={(e) => handleChange(e)}
+              value={formValue}
+              id="Location"
+              type="text"
+              name="Location"
+            ></input>
+          </div>
+          <input type="submit"></input>
+        </form>
+
+
+
+*/

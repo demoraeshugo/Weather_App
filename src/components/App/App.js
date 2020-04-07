@@ -14,7 +14,6 @@ class App extends Component {
       },
       forecastData: MockForecast,
       currentData: MockCurrent,
-      formValue: "",
       cityList: []
     };
   }
@@ -78,6 +77,15 @@ class App extends Component {
     }))
   };
 
+  onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
+    event.preventDefault();
+    this.setState({
+      location: {
+        name: suggestion.name,
+        id: suggestion.id
+      }})
+  }
+
   getCurrentState = (type) => {
     let currentState;
     type === "CurrentData"
@@ -106,47 +114,20 @@ class App extends Component {
     }
   };
 
-  handleChange = (event) => {
-    this.setState({
-      formValue: event.target.value,
-    });
-  };
-
-  handleSubmit = (event) => {
-    const input = event.target.firstChild.firstChild.value;
-    const location = this.getLocation(input);
-
-    if (location) {
-      this.setState({
-        location: {
-          name: location.name,
-          id: location.id,
-        },
-      });
-    } else {
-      console.log("Error: invalid city");
-    }
-
-    event.preventDefault();
-  };
-
   render() {
-    const { forecastData, currentData, formValue, location, cityList } = this.state;
+    const { forecastData, currentData, location, cityList } = this.state;
     const {
       getWeather,
-      handleSubmit,
-      handleChange,
-      getSuggestions
+      getSuggestions,
+      onSuggestionSelected
     } = this;
 
     return (
       <div className="wrapper">
         <Header
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-          formValue={formValue}
           cityList={cityList}
           getSuggestions={getSuggestions}
+          onSuggestionSelected={onSuggestionSelected}
         ></Header>
         <Body
           currentData={currentData}
