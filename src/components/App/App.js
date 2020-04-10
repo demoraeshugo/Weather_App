@@ -14,7 +14,7 @@ class App extends Component {
       },
       forecastData: MockForecast,
       currentData: MockCurrent,
-      cityList: []
+      cityList: [],
     };
   }
 
@@ -49,11 +49,10 @@ class App extends Component {
     return result;
   };
 
-  getWeather = async (type) => {
+  getWeather_OLD = async (type) => {
     const { APICall } = this;
-    const result = await APICall(type);
-    if (await result) {
-      result.json().then(async (data) => {
+    await APICall(type).then((result) =>
+      result.json().then((data) => {
         if (type === "currentData") {
           this.setState({
             currentData: data,
@@ -63,28 +62,57 @@ class App extends Component {
             forecastData: data,
           });
         }
+      })
+    );
+  };
+
+  getWeather = async () => {
+    var type;
+    const { APICall } = this;
+
+    type = "currentData";
+    const currentData = await APICall(type).then((result) => {
+      return result.json();
+    });
+
+    type = "forecastData";
+    const forecastData = await APICall(type).then((result) => {
+      return result.json();
+    });
+
+    if ((await currentData) && (await forecastData)) {
+      this.setState({
+        currentData: currentData,
+        forecastData: forecastData,
       });
     }
   };
 
   getSuggestions = async () => {
+    var type = "getSuggestions"
     const { APICall } = this;
-    await APICall("getSuggestions")
-    .then((result) => result.json().then(async (data) => {
-      this.setState({
-        cityList: data
+
+    await APICall(type).then((result) =>
+      result.json().then((data) => {
+        this.setState({
+          cityList: data,
+        });
       })
-    }))
+    );
   };
 
-  onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
+  onSuggestionSelected = (
+    event,
+    { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }
+  ) => {
     event.preventDefault();
     this.setState({
       location: {
         name: suggestion.name,
-        id: suggestion.id
-      }})
-  }
+        id: suggestion.id,
+      },
+    });
+  };
 
   getCurrentState = (type) => {
     let currentState;
@@ -116,11 +144,7 @@ class App extends Component {
 
   render() {
     const { forecastData, currentData, location, cityList } = this.state;
-    const {
-      getWeather,
-      getSuggestions,
-      onSuggestionSelected
-    } = this;
+    const { getWeather, getSuggestions, onSuggestionSelected } = this;
 
     return (
       <div className="wrapper">

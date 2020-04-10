@@ -6,15 +6,13 @@ import "../../Styles/styles.css";
 
 class Body extends Component {
   componentDidMount() {
-    this.props.getWeather("currentData");
-    this.props.getWeather("forecastData");
+    this.props.getWeather()
   }
 
   //If location prop changes, make call for new location ------
   componentDidUpdate(prevProps) {
     if (this.props.location.name !== prevProps.location.name) {
-      this.props.getWeather("currentData");
-      this.props.getWeather("forecastData");
+      this.props.getWeather()
     }
   }
 
