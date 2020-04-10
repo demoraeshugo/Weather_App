@@ -34,7 +34,6 @@ Major changes:
 All major features are functional and in place
 
 To Do:
-  - CSS :( 
   - Currently using a JSON file a fraction of the size of the intended one for dev purposes
   - Need to implement real file and look at how to optimize configurations
 
