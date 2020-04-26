@@ -40,9 +40,9 @@ Major changes:
   
 App's true MVC architecture is starting to fall into place. 
 
-Model: PostgresSQL containing city.list.json
-View: React App
-Controller: Express App  
+- Model: PostgresSQL containing city.list.json
+- View: React App
+- Controller: Express App  
   
 Express:
   - Simple middleware layer which routes a "Read" call between my view and model
