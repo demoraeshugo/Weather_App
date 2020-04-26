@@ -18,25 +18,30 @@ class App extends Component {
     };
   }
 
-  APICall = async (type) => {
+  APICall = async (type, value) => {
     var callType;
     var url;
     const unit = "imperial";
     const id = this.state.location.id;
-    const APIkey = process.env.REACT_APP_API_KEY;
+    const input = value;
+    //const APIkey = process.env.REACT_APP_API_KEY;
+    const APIKey = "f95e61263e551a5f7a879ac6df2d30c0";
 
     switch (type) {
       case "currentData":
         callType = "weather";
-        url = `https://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${APIkey}`;
+        url = `https://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${APIKey}`;
         break;
       case "forecastData":
         callType = "forecast";
-        url = `https://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${APIkey}`;
+        url = `https://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${APIKey}`;
         break;
-      case "getSuggestions":
+      case "getSuggestionsAWS":
         url =
           "https://i0o3zampo3.execute-api.us-east-2.amazonaws.com/getSuggestions";
+        break;
+      case "getSuggestions":
+        url = `http://localhost:5000/suggestions/${input}`;
         break;
       default:
         console.log("Unhandled API call type");
@@ -71,11 +76,11 @@ class App extends Component {
     }
   };
 
-  getSuggestions = async () => {
+  getSuggestions = async (value) => {
     var type = "getSuggestions";
     const { APICall } = this;
 
-    await APICall(type).then((result) =>
+    await APICall(type, value).then((result) =>
       result.json().then((data) => {
         this.setState({
           cityList: data,

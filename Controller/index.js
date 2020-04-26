@@ -38,7 +38,6 @@ app.get("/suggestions/:input", async (req, res) => {
     const { input } = req.params;
     const query = "SELECT * FROM city WHERE name LIKE '" + input + "%'";
     const suggestions = await pool.query(query);
-    console.log((suggestions.rows));
     res.json(suggestions.rows);
   } catch (err) {
     console.log(err.message);
