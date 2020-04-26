@@ -1,0 +1,23 @@
+{
+	"function": {
+		"getSuggestion": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": []
+		}
+	},
+	"auth": {
+		"weatherlye65fe737": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"storage": {
+		"weatherlyauth": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}
