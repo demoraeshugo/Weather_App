@@ -6,6 +6,21 @@
 ![](http://bestanimations.com/Site/Construction/under-construction-gif-6.gif)
 ![](http://bestanimations.com/Site/Construction/under-construction-gif-6.gif)
 
+## Purpose
+- Reinforce React basics 
+- Learn intermediate React: 
+  - Asynchronous data & functions
+  - Maintaining clean state management in a more complex application
+- Reinforce HTML & CSS knowledge
+
+## New
+- Build a full stack application using the PERN stack 
+  - PostgresSQL
+  - Express
+  - React
+  - Node
+- Explore AWS serverless solutions
+
 ## Generalized Overview of Component Hierarchy
 - App
   - Header
@@ -15,12 +30,32 @@
     - Current
     - Forecast
 
-## Purpose
-- Reinforce React basics 
-- Learn intermediate React: 
-  - Asynchronous data & functions
-  - Maintaining clean state management in a more complex application
-- Reinforce HTML & CSS knowledge
+## Project Status as of 04.26.20
+
+Implemented major tools and features that are starting to really solidify the final architecture of this application.  
+
+Major changes:
+  - Configured Express app middleware
+  - Configured PostgresSQL Database
+  
+App's true MVC architecture is starting to fall into place. 
+
+Model: PostgresSQL containing city.list.json
+View: React App
+Controller: Express App  
+  
+Express:
+  - Simple middleware layer which routes a "Read" call between my view and model
+  - Currently running on local machine.  Once finalized, I will look into integrating with AWS services such as Lambda
+
+PostgresSQL:
+  - Congifured relational database containing "OpenWeatherMaps's" city data. 
+  - Schema: 
+    - "id" : int
+    - "name" : varchar
+    - "country" : varchar
+    - "coord" : point
+  - Containes over 200k entires from city data JSON, data cleansing and trimming may be required
 
 ## Project Status as of 04.07.20
 
