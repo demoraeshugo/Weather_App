@@ -1,0 +1,96 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-weatherly-dev-01544-authRole",
+			"UnauthRoleArn": "arn:aws:iam::831217530463:role/amplify-weatherly-dev-01544-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::831217530463:role/amplify-weatherly-dev-01544-authRole",
+			"Region": "us-east-2",
+			"DeploymentBucketName": "amplify-weatherly-dev-01544-deployment",
+			"UnauthRoleName": "amplify-weatherly-dev-01544-unauthRole",
+			"StackName": "amplify-weatherly-dev-01544",
+			"StackId": "arn:aws:cloudformation:us-east-2:831217530463:stack/amplify-weatherly-dev-01544/75c523e0-73cf-11ea-8110-060a55e3d44e",
+			"AmplifyAppId": "d1avqrcyilu4a1"
+		}
+	},
+	"function": {
+		"getSuggestion": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [],
+			"lastPushTimeStamp": "2020-04-01T05:09:33.242Z",
+			"lastBuildTimeStamp": "2020-04-01T04:54:20.250Z",
+			"lastPackageTimeStamp": "2020-04-01T04:54:21.338Z",
+			"distZipFilename": "getSuggestion-3877744231496e6b756e-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-weatherly-dev-01544-deployment/amplify-cfn-templates/function/getSuggestion-cloudformation-template.json",
+				"logicalId": "functiongetSuggestion"
+			},
+			"output": {
+				"Region": "us-east-2",
+				"Arn": "arn:aws:lambda:us-east-2:831217530463:function:getSuggestion-dev",
+				"Name": "getSuggestion-dev",
+				"LambdaExecutionRole": "weatherlyLambdaRole64209389-dev"
+			},
+			"lastPushDirHash": "O69+qnsEwDA7iIb14VXt5ROtU+Q="
+		},
+		"getSuggestions": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"lastBuildTimeStamp": "2020-04-01T05:08:30.747Z",
+			"lastPackageTimeStamp": "2020-04-01T05:08:30.828Z",
+			"distZipFilename": "getSuggestions-6e4d72724841584b6b34-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-weatherly-dev-01544-deployment/amplify-cfn-templates/function/getSuggestions-cloudformation-template.json",
+				"logicalId": "functiongetSuggestions"
+			},
+			"lastPushTimeStamp": "2020-04-01T05:09:33.267Z",
+			"output": {
+				"Region": "us-east-2",
+				"Arn": "arn:aws:lambda:us-east-2:831217530463:function:getSuggestions-dev",
+				"Name": "getSuggestions-dev",
+				"LambdaExecutionRole": "weatherlyLambdaRolea1084ada-dev"
+			},
+			"lastPushDirHash": "CreZlyzK1+8QEtuLFQN0dKAIdTI="
+		}
+	},
+	"auth": {
+		"weatherlye65fe737": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-weatherly-dev-01544-deployment/amplify-cfn-templates/auth/weatherlye65fe737-cloudformation-template.yml",
+				"logicalId": "authweatherlye65fe737"
+			},
+			"lastPushTimeStamp": "2020-04-01T05:09:33.264Z",
+			"output": {
+				"AppClientSecret": "1sknkl85104m2b0sev50phsrk45tf3iurmqe0m1o3pqqgcqa7ivi",
+				"UserPoolId": "us-east-2_BMCJpRMAa",
+				"AppClientIDWeb": "6q11jbcqth5q1rel5ebrn911en",
+				"AppClientID": "1nid4o0m9cbsa1t613k08mt2h2",
+				"IdentityPoolId": "us-east-2:b17161f9-a3b0-4354-808c-41725e660421",
+				"IdentityPoolName": "weatherlye65fe737_identitypool_e65fe737__dev",
+				"UserPoolName": "weatherlye65fe737_userpool_e65fe737"
+			},
+			"lastPushDirHash": "CmW17Uu0Kyh4RxPNFnp8K7rCF+o="
+		}
+	},
+	"storage": {
+		"weatherlyauth": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-weatherly-dev-01544-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"logicalId": "storageweatherlyauth"
+			},
+			"lastPushTimeStamp": "2020-04-01T05:09:33.265Z",
+			"output": {
+				"BucketName": "weatherlybucket01544-dev",
+				"Region": "us-east-2"
+			},
+			"lastPushDirHash": "bPDdZvGoKk3f4X1RjONQSVrsiGM="
+		}
+	}
+}
