@@ -28,7 +28,7 @@ class SearchBar extends Component {
 
   async loadSuggestions(value) {
     await this.props
-      .getSuggestions()
+      .getSuggestions(value.toLowerCase())
       .then(console.log(this.props.cityList))
       .then(
         this.setState({
@@ -56,6 +56,10 @@ class SearchBar extends Component {
     });
   };
 
+  shouldRenderSuggestions = (value) => {
+    return value.trim().length > 2;
+  }
+
   render() {
     const { value, suggestions } = this.state;
     const {
@@ -64,6 +68,7 @@ class SearchBar extends Component {
       onSuggestionsClearRequested,
       getSuggestionValue,
       renderSuggestion,
+      shouldRenderSuggestions
     } = this;
     const { onSuggestionSelected } = this.props
 
@@ -84,6 +89,7 @@ class SearchBar extends Component {
         renderSuggestion={renderSuggestion}
         inputProps={inputProps}
         onSuggestionSelected={onSuggestionSelected}
+        shouldRenderSuggestions={shouldRenderSuggestions}
       />
     );
   }
