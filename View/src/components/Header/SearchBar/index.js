@@ -28,7 +28,7 @@ class SearchBar extends Component {
 
   async loadSuggestions(value) {
     await this.props
-      .getSuggestions(value.toLowerCase())
+      .getSuggestions(value)
       .then(console.log(this.props.cityList))
       .then(
         this.setState({
