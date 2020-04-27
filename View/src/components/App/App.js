@@ -24,8 +24,8 @@ class App extends Component {
     const unit = "imperial";
     const id = this.state.location.id;
     const input = value;
-    //const APIkey = process.env.REACT_APP_API_KEY;
-    const APIKey = "f95e61263e551a5f7a879ac6df2d30c0";
+
+    const APIKey = process.env.REACT_APP_API_KEY;
 
     switch (type) {
       case "currentData":
