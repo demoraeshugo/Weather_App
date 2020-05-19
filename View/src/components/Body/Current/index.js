@@ -6,9 +6,13 @@ import { ReactComponent as ThermometerIcon } from "../../../assets/thermometer-h
 import { ReactComponent as CurrentWeatherIcon } from "../../../assets/cloud-sun-solid.svg";
 
 const CurrentWeather = props => {
-  var { current } = props;
-  current = Math.round(current, 2);
-  const { max, min, description, humidity, speed } = props;
+  var { current, max, min } = props;
+  const { description, humidity, speed } = props;
+
+  current = Math.round(current);
+  max = Math.round(max);
+  min = Math.round(min);
+
   return (
     <>
       <div className="currentWeather flex-columns">

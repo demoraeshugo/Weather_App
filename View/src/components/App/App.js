@@ -5,8 +5,8 @@ import MockCurrent from "./MockCurrent.json";
 import MockForecast from "./MockForecast.json";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       location: {
         name: "New York",
@@ -18,10 +18,7 @@ class App extends Component {
     };
   }
 
-  /* ------------------------------------------ New API Call Methods ----------------------------------------- */
-
   //getWeather || getSuggestion -> passes URL info ->
-
   getWeather = async () => {
     const { getURL, APICall } = this;
     const { id } = this.state.location;
@@ -50,7 +47,7 @@ class App extends Component {
     //Resolve promises from results array and then set app state
     Promise.all(results).then((results) => {
       const [currentData, forecastData] = results;
-      console.log(results);
+      //console.log(results);
       this.setState({
         currentData: currentData,
         forecastData: forecastData,
@@ -62,7 +59,7 @@ class App extends Component {
     const { getURL, APICall } = this;
     const callType = "getSuggestions";
 
-     //Construct a URL paramater Object for getURL function
+    //Construct a URL paramater Object for getURL function
     const URLParams = (callType, input) => {
       return {
         callType: callType,
@@ -93,8 +90,8 @@ class App extends Component {
     if (callType === "weather" || callType === "forecast") {
       const { id, unit, APIKey } = URLParams;
       URL = `https://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${APIKey}`;
-    //Express API URL
-    //Takes "input" param 
+    //AWS API-Gateway URL
+    //Takes "input" param := string
     } else if (callType === "getSuggestions") {
       const { input } = URLParams;
       URL = `https://ee3bsvugde.execute-api.us-east-2.amazonaws.com/Default/getsuggestions?input=${input}`;
@@ -104,8 +101,6 @@ class App extends Component {
 
     return URL;
   };
-
-  //'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
 
   //APICall -> returns result
   APICall = async (url) => {

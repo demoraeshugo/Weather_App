@@ -16,17 +16,21 @@ const ForecastWeather = props => {
     return (
       <>
         {filtered.map((array) => {
-          const { temp, temp_min, temp_max, humidity } = array.main;
+          var { temp, temp_min, temp_max, humidity } = array.main;
           const { description } = array.weather[0];
           const { speed } = array.wind;
           const date = array.dt_txt.slice(0, 10);
           const weekDay = getDayOfWeek(date);
+
+          temp = Math.round(temp);
+          temp_min = Math.round(temp_min);
+          temp_max = Math.round(temp_max);
           
           return (
             <div className="forecast" key={array.dt.toString()}>
               <span>{weekDay}</span>
               <div>
-                Current{" "}
+                Average{" "}
                 <span>{temp}° F</span>
               </div>
               <div>

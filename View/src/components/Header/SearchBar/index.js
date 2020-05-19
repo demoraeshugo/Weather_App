@@ -6,10 +6,10 @@ class SearchBar extends Component {
   constructor() {
     super();
     this.state = {
-      value: "",
-      id: 0,
-      suggestions: [],
-      isLoading: false,
+      value: "", //Form Value
+      id: 0, //ID of selected value
+      suggestions: [], //Suggestion Array
+      isLoading: false, //Flag used for debugging
     };
 
     this.lastRequest = null;
@@ -76,7 +76,7 @@ class SearchBar extends Component {
   };
 
   render() {
-    const { value, suggestions, isLoading } = this.state;
+    const { value, suggestions } = this.state;
     const {
       onChange,
       onSuggestionsFetchRequested,
@@ -94,14 +94,9 @@ class SearchBar extends Component {
       onChange: onChange,
     };
 
-    const status = isLoading ? "Loading..." : "Type to load suggestions";
-
     // Finally, render it!
     return (
       <div>
-        <div>
-          <strong>Status:</strong> {status}
-        </div>
         <Autosuggest
           suggestions={suggestions}
           onSuggestionsFetchRequested={onSuggestionsFetchRequested}
