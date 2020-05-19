@@ -4,6 +4,8 @@ import Body from "../Body";
 import MockCurrent from "./MockCurrent.json";
 import MockForecast from "./MockForecast.json";
 
+import Container from 'react-bootstrap/Container';
+
 class App extends Component {
   constructor() {
     super();
