@@ -58,7 +58,7 @@ class App extends Component {
     });
   };
 
-  getSuggestions = async (input) => {
+  getSuggestionsAPI = async (input) => {
     const { getURL, APICall } = this;
     const callType = "getSuggestions";
 
@@ -122,84 +122,6 @@ class App extends Component {
     return response;
   };
 
-  /* -------------------------------- Old API Call methods ------------------------------------------------- */
-
-  old_APICall = async (type, value) => {
-    var callType;
-    var url;
-
-    //OpenWeatherMap URL params
-    const unit = "imperial";
-    const id = this.state.location.id;
-    //const APIKey = process.env.REACT_APP_API_KEY;
-    const APIKey = "f95e61263e551a5f7a879ac6df2d30c0";
-
-    //Express API URL params
-    const input = value;
-
-    switch (type) {
-      case "currentData":
-        callType = "weather";
-        url = `https://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${APIKey}`;
-        break;
-      case "forecastData":
-        callType = "forecast";
-        url = `https://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${APIKey}`;
-        break;
-      case "getSuggestionsAWS":
-        url =
-          "https://i0o3zampo3.execute-api.us-east-2.amazonaws.com/getSuggestions";
-        break;
-      case "getSuggestions":
-        url = `http://localhost:5000/suggestions/${input}`;
-        break;
-      default:
-        console.log("Unhandled API call type");
-    }
-
-    //Fetch call and error handling
-    const result = await fetch(url)
-      .then(this.handleErrors)
-      .catch((err) => console.log(err.message));
-
-    return result;
-  };
-
-  old_getWeather = async () => {
-    var type;
-    const { APICall } = this;
-
-    type = "currentData";
-    const currentData = await APICall(type).then((result) => {
-      return result.json();
-    });
-
-    type = "forecastData";
-    const forecastData = await APICall(type).then((result) => {
-      return result.json();
-    });
-
-    if ((await currentData) && (await forecastData)) {
-      this.setState({
-        currentData: currentData,
-        forecastData: forecastData,
-      });
-    }
-  };
-
-  old_getSuggestions = async (value) => {
-    var type = "getSuggestions";
-    const { APICall } = this;
-
-    await APICall(type, value).then((result) =>
-      result.json().then((data) => {
-        this.setState({
-          cityList: data,
-        });
-      })
-    );
-  };
-
   //ReactAutoSuggest component function
   //Hoisted to App level in order to trigger API call when a user selects a city from the dropdown 
   //Params { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }
@@ -215,13 +137,13 @@ class App extends Component {
 
   render() {
     const { forecastData, currentData, location, cityList } = this.state;
-    const { getWeather, getSuggestions, onSuggestionSelected } = this;
+    const { getWeather, getSuggestionsAPI, onSuggestionSelected } = this;
 
     return (
       <div className="wrapper">
         <Header
           cityList={cityList}
-          getSuggestions={getSuggestions}
+          getSuggestionsAPI={getSuggestionsAPI}
           onSuggestionSelected={onSuggestionSelected}
         ></Header>
         <Body

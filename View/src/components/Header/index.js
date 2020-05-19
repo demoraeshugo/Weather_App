@@ -5,14 +5,14 @@ import SearchBar from "./SearchBar/index";
 
 const Header = (props) => {
   
-  const { getSuggestions, cityList, onSuggestionSelected } = props;
+  const { getSuggestionsAPI, cityList, onSuggestionSelected } = props;
 
   return (
     <div className="navBar">
       <span>Weatherly</span>
       <SearchBar
         cityList={cityList}
-        getSuggestions={getSuggestions}
+        getSuggestionsAPI={getSuggestionsAPI}
         onSuggestionSelected={onSuggestionSelected}
       ></SearchBar>
     </div>

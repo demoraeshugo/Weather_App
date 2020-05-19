@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import "../../../Styles/styles.css";
 
 class SearchBar extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       value: "",
       id: 0,
@@ -14,6 +14,25 @@ class SearchBar extends Component {
 
     this.lastRequest = null;
   }
+
+  loadSuggestions = async (value) => {
+    const { getSuggestionsAPI } = this.props;
+
+    if (this.lastRequest !== null) {
+      clearTimeout(this.lastRequest);
+    }
+
+    this.setState({
+      isLoading: true,
+    });
+
+    await getSuggestionsAPI(value)
+    
+    this.setState({
+      isLoading: false,
+      suggestions: this.getSuggestions(value),
+    })
+  };
 
   getSuggestionValue = (suggestion) => suggestion.name;
 
@@ -31,29 +50,6 @@ class SearchBar extends Component {
     this.setState({
       suggestions: [],
     });
-  };
-
-  loadSuggestions = async (value) => {
-    const { getSuggestions } = this.props;
-
-    if (this.lastRequest !== null) {
-      clearTimeout(this.lastRequest);
-    }
-
-    this.setState({
-      isLoading: true,
-    });
-
-    this.lastRequest = setTimeout(async () => {
-      await getSuggestions(value).then(
-        this.setState({
-          isLoading: false,
-          suggestions: this.getSuggestions(value),
-        },() => {
-          console.log(this.state.suggestions)
-        })
-      );
-    }, 1000);
   };
 
   getSuggestions = (value) => {
@@ -75,11 +71,9 @@ class SearchBar extends Component {
     });
   };
 
-  /*
   shouldRenderSuggestions = (value) => {
     return value.trim().length > 2;
   };
-  */
 
   render() {
     const { value, suggestions, isLoading } = this.state;
@@ -89,7 +83,7 @@ class SearchBar extends Component {
       onSuggestionsClearRequested,
       getSuggestionValue,
       renderSuggestion,
-      //shouldRenderSuggestions,
+      shouldRenderSuggestions,
     } = this;
     const { onSuggestionSelected } = this.props;
 
@@ -116,7 +110,7 @@ class SearchBar extends Component {
           renderSuggestion={renderSuggestion}
           inputProps={inputProps}
           onSuggestionSelected={onSuggestionSelected}
-          //shouldRenderSuggestions={shouldRenderSuggestions}
+          shouldRenderSuggestions={shouldRenderSuggestions}
         />
       </div>
     );
