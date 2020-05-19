@@ -18,15 +18,6 @@ class App extends Component {
     };
   }
 
-  //Debugging
-  /*
-  componentDidMount = () => {
-    window.map = this;
-    this.new_getWeather();
-    this.new_getSuggestions("Bos");
-  };
-  */
-
   /* ------------------------------------------ New API Call Methods ----------------------------------------- */
 
   //getWeather || getSuggestion -> passes URL info ->
@@ -42,7 +33,6 @@ class App extends Component {
         callType: callType,
         unit: "imperial",
         id: id,
-        //APIKey: "f95e61263e551a5f7a879ac6df2d30c0",
         APIKey: process.env.REACT_APP_API_KEY
       };
     };
@@ -107,13 +97,15 @@ class App extends Component {
     //Takes "input" param 
     } else if (callType === "getSuggestions") {
       const { input } = URLParams;
-      URL = `http://localhost:5000/suggestions/${input}`;
+      URL = `https://ee3bsvugde.execute-api.us-east-2.amazonaws.com/Default/getsuggestions?input=${input}`;
     } else {
       console.log("Unhandled API call type");
     }
 
     return URL;
   };
+
+  //'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
 
   //APICall -> returns result
   APICall = async (url) => {
@@ -130,7 +122,7 @@ class App extends Component {
     return response;
   };
 
-  /* -------------------------------- Current API Call methods ------------------------------------------------- */
+  /* -------------------------------- Old API Call methods ------------------------------------------------- */
 
   old_APICall = async (type, value) => {
     var callType;

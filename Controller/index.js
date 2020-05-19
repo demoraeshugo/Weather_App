@@ -13,14 +13,14 @@ app.post("/populate/:key", async (req, res) => {
   const { key } = req.params;
   if (key == process.env.NODE_APP_DATABASE_KEY) {
     try {
-      for(let i = 0; i < citylistjson.length; i++) {
+      for (let i = 0; i < citylistjson.length; i++) {
         const city = citylistjson[i];
         const { id, name, country } = city;
         const x = city.coord.lon;
         const y = city.coord.lat;
         const query = "INSERT INTO city VALUES ($1, $2, $3, point($4, $5))";
         const values = [id, name, country, x, y];
-        console.log(`${i} of ${citylistjson.length} ------ ${values}`)
+        console.log(`${i} of ${citylistjson.length} ------ ${values}`);
         const newCity = await pool.query(query, values);
         res.json(await newCity.rows[0]);
       }
@@ -28,7 +28,7 @@ app.post("/populate/:key", async (req, res) => {
       console.log(err.message);
     }
   } else {
-    console.log("incorrect key")
+    console.log("incorrect key");
   }
 });
 
@@ -36,7 +36,10 @@ app.post("/populate/:key", async (req, res) => {
 app.get("/suggestions/:input", async (req, res) => {
   try {
     const { input } = req.params;
-    const query = "SELECT * FROM city WHERE LOWER(name) LIKE '" + input.toLowerCase() + "%' LIMIT 10";
+    const query =
+      "SELECT * FROM city WHERE LOWER(name) LIKE '" +
+      input.toLowerCase() +
+      "%' LIMIT 10";
     const suggestions = await pool.query(query);
     res.json(suggestions.rows);
   } catch (err) {

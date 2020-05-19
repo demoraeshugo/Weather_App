@@ -9,12 +9,19 @@ class SearchBar extends Component {
       value: "",
       id: 0,
       suggestions: [],
+      isLoading: false,
     };
+
+    this.lastRequest = null;
   }
 
   getSuggestionValue = (suggestion) => suggestion.name;
 
-  renderSuggestion = (suggestion) => <div>{suggestion.name}</div>;
+  renderSuggestion = (suggestion) => (
+    <div>
+      {suggestion.name}, {suggestion.country}
+    </div>
+  );
 
   onSuggestionsFetchRequested = ({ value }) => {
     this.loadSuggestions(value);
@@ -26,16 +33,28 @@ class SearchBar extends Component {
     });
   };
 
-  async loadSuggestions(value) {
-    await this.props
-      .getSuggestions(value)
-      .then(console.log(this.props.cityList))
-      .then(
+  loadSuggestions = async (value) => {
+    const { getSuggestions } = this.props;
+
+    if (this.lastRequest !== null) {
+      clearTimeout(this.lastRequest);
+    }
+
+    this.setState({
+      isLoading: true,
+    });
+
+    this.lastRequest = setTimeout(async () => {
+      await getSuggestions(value).then(
         this.setState({
+          isLoading: false,
           suggestions: this.getSuggestions(value),
+        },() => {
+          console.log(this.state.suggestions)
         })
       );
-  }
+    }, 1000);
+  };
 
   getSuggestions = (value) => {
     const inputValue = value.trim().toLowerCase();
@@ -56,61 +75,52 @@ class SearchBar extends Component {
     });
   };
 
+  /*
   shouldRenderSuggestions = (value) => {
     return value.trim().length > 2;
-  }
+  };
+  */
 
   render() {
-    const { value, suggestions } = this.state;
+    const { value, suggestions, isLoading } = this.state;
     const {
       onChange,
       onSuggestionsFetchRequested,
       onSuggestionsClearRequested,
       getSuggestionValue,
       renderSuggestion,
-      shouldRenderSuggestions
+      //shouldRenderSuggestions,
     } = this;
-    const { onSuggestionSelected } = this.props
+    const { onSuggestionSelected } = this.props;
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
-      placeholder: "Type city name",
+      placeholder: "Type City Name",
       value,
       onChange: onChange,
     };
 
+    const status = isLoading ? "Loading..." : "Type to load suggestions";
+
     // Finally, render it!
     return (
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        inputProps={inputProps}
-        onSuggestionSelected={onSuggestionSelected}
-        shouldRenderSuggestions={shouldRenderSuggestions}
-      />
+      <div>
+        <div>
+          <strong>Status:</strong> {status}
+        </div>
+        <Autosuggest
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={onSuggestionsClearRequested}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={renderSuggestion}
+          inputProps={inputProps}
+          onSuggestionSelected={onSuggestionSelected}
+          //shouldRenderSuggestions={shouldRenderSuggestions}
+        />
+      </div>
     );
   }
 }
 
 export default SearchBar;
-
-/*
- <form autoComplete="off" onSubmit={(e) => handleSubmit(e)}>
-          <div>
-            <input
-              onChange={(e) => handleChange(e)}
-              value={formValue}
-              id="Location"
-              type="text"
-              name="Location"
-            ></input>
-          </div>
-          <input type="submit"></input>
-        </form>
-
-
-
-*/
