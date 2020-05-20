@@ -3,8 +3,8 @@ import Header from "../Header";
 import Body from "../Body";
 import MockCurrent from "./MockCurrent.json";
 import MockForecast from "./MockForecast.json";
-
-import Container from 'react-bootstrap/Container';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "react-bootstrap/Container";
 
 class App extends Component {
   constructor() {
@@ -32,7 +32,7 @@ class App extends Component {
         callType: callType,
         unit: "imperial",
         id: id,
-        APIKey: process.env.REACT_APP_API_KEY
+        APIKey: process.env.REACT_APP_API_KEY,
       };
     };
 
@@ -92,8 +92,8 @@ class App extends Component {
     if (callType === "weather" || callType === "forecast") {
       const { id, unit, APIKey } = URLParams;
       URL = `https://api.openweathermap.org/data/2.5/${callType}?id=${id}&units=${unit}&APPID=${APIKey}`;
-    //AWS API-Gateway URL
-    //Takes "input" param := string
+      //AWS API-Gateway URL
+      //Takes "input" param := string
     } else if (callType === "getSuggestions") {
       const { input } = URLParams;
       URL = `https://ee3bsvugde.execute-api.us-east-2.amazonaws.com/Default/getsuggestions?input=${input}`;
@@ -120,7 +120,7 @@ class App extends Component {
   };
 
   //ReactAutoSuggest component function
-  //Hoisted to App level in order to trigger API call when a user selects a city from the dropdown 
+  //Hoisted to App level in order to trigger API call when a user selects a city from the dropdown
   //Params { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }
   onSuggestionSelected = (event, { suggestion }) => {
     event.preventDefault();
@@ -137,7 +137,7 @@ class App extends Component {
     const { getWeather, getSuggestionsAPI, onSuggestionSelected } = this;
 
     return (
-      <div className="wrapper">
+      <Container fluid="xl">
         <Header
           cityList={cityList}
           getSuggestionsAPI={getSuggestionsAPI}
@@ -149,7 +149,7 @@ class App extends Component {
           getWeather={getWeather}
           location={location}
         ></Body>
-      </div>
+      </Container>
     );
   }
 }

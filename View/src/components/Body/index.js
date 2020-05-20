@@ -2,17 +2,19 @@ import React, { Component } from "react";
 import Location from "./Location/index.js";
 import CurrentWeather from "./Current/index";
 import ForecastWeather from "./Forecast/index";
-import "../../Styles/styles.css";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 class Body extends Component {
   componentDidMount() {
-    this.props.getWeather()
+    this.props.getWeather();
   }
 
   //If location prop changes, make call for new location ------
   componentDidUpdate(prevProps) {
     if (this.props.location.name !== prevProps.location.name) {
-      this.props.getWeather()
+      this.props.getWeather();
     }
   }
 
@@ -23,24 +25,24 @@ class Body extends Component {
     const { speed } = currentData.wind;
 
     return (
-      <>
-        <div className="body">
-          <div className="section-main flex-columns">
-            <Location location={location}></Location>
-            <CurrentWeather
-              current={temp}
-              max={temp_max}
-              min={temp_min}
-              description={description}
-              humidity={humidity}
-              speed={speed}
-            />
-          </div>
-          <div className="section-bottom">
-            <ForecastWeather forecastData={forecastData} />
-          </div>
-        </div>
-      </>
+      <Container className="body" id="Body">
+        <Row>
+          <Location location={location} />
+        </Row>
+        <Row>
+          <CurrentWeather
+            current={temp}
+            max={temp_max}
+            min={temp_min}
+            description={description}
+            humidity={humidity}
+            speed={speed}
+          />
+        </Row>
+        <Row>
+          <ForecastWeather forecastData={forecastData} />
+        </Row>
+      </Container>
     );
   }
 }

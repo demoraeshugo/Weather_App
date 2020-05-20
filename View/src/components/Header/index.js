@@ -1,21 +1,40 @@
 import React from "react";
-import "./styles.css";
 import SearchBar from "./SearchBar/index";
-//import '../../Styles/styles.css'
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 const Header = (props) => {
-  
   const { getSuggestionsAPI, cityList, onSuggestionSelected } = props;
 
   return (
-    <div className="navBar">
-      <span>Weatherly</span>
-      <SearchBar
-        cityList={cityList}
-        getSuggestionsAPI={getSuggestionsAPI}
-        onSuggestionSelected={onSuggestionSelected}
-      ></SearchBar>
-    </div>
+    <>
+      <Navbar bg="light" expand="lg">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Navbar.Brand id="Brand" href="#home">Weatherly</Navbar.Brand>
+            <Nav.Link href="https://github.com/demoraeshugo/Weather_App">
+              Github
+            </Nav.Link>
+            <NavDropdown title="About" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Linkedin</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Personal Website
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Resume</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+
+        <SearchBar
+          cityList={cityList}
+          getSuggestionsAPI={getSuggestionsAPI}
+          onSuggestionSelected={onSuggestionSelected}
+        ></SearchBar>
+      </Navbar>
+    </>
   );
 };
 

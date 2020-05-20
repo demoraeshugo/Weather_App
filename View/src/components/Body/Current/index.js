@@ -1,65 +1,70 @@
 import React from "react";
-import "../../../Styles/styles.css"
 import { ReactComponent as DewDropIcon } from "../../../assets/tint-solid.svg";
 import { ReactComponent as WindIcon } from "../../../assets/wind-solid.svg";
 import { ReactComponent as ThermometerIcon } from "../../../assets/thermometer-half-solid.svg";
-import { ReactComponent as CurrentWeatherIcon } from "../../../assets/cloud-sun-solid.svg";
+import { ReactComponent as CurrentWeatherIcon } from "../../../assets/Cloud-sun-colored.svg";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
-const CurrentWeather = props => {
-  var { current, max, min } = props;
-  const { description, humidity, speed } = props;
+const CurrentWeather = (props) => {
+  var { current, max, min, speed } = props;
+  const { description, humidity } = props;
 
   current = Math.round(current);
   max = Math.round(max);
   min = Math.round(min);
+  speed = Math.round(speed);
 
   return (
-    <>
-      <div className="currentWeather flex-columns">
-        <div className="flex-rows" id="row-1">
-          <div className="icons">
-            <CurrentWeatherIcon />
-          </div>
-          <div>
-            <span id="currentTemp">{current}° F</span>
-          </div>
-        </div>
-        <div>
-          <span className="description">{description}</span>
-        </div>
-        <div className="flex-rows" id="row-3">
-          <div className="flex-columns row-3-columns">
-            <div className="icons">
-              <DewDropIcon />
-            </div>
-            <div>
-              <span id="humidity">{humidity}%</span>
-            </div>
-          </div>
-          <span className="line"></span>
-          <div className="flex-columns">
-            <div className="icons">
-              {" "}
-              <ThermometerIcon />
-            </div>
-            <div className="flex-rows">
-              <div id="maxTemp">{max}° F</div>
-              <div id="minTemp">{min}° F</div>
-            </div>
-          </div>
-          <span className="line"></span>
-          <div className="flex-columns">
-            <div className="icons">
-              {" "}
-              <WindIcon />
-            </div>
-            <div>
-              <span id="windSpeed">{speed}mph</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <Container fluid>
+      
+      <Row className="d-flex justify-content-center">
+        <Col xs={1} className="my-auto">
+          <CurrentWeatherIcon />
+        </Col>
+        <Col xs={2}>
+          <span id="CurrentTemp">{current}°</span>
+        </Col>
+      </Row>
+
+      <Row className="d-flex justify-content-center">
+        <span id="Description">{description}</span>
+      </Row>
+
+      <Row className="d-flex justify-content-center" id="Details">
+        <Col xs={1}>
+          <Row className="d-flex justify-content-center">
+            <DewDropIcon />
+          </Row>
+          <Row className="d-flex justify-content-center">
+            <span id="humidity">{humidity}%</span>
+          </Row>
+        </Col>
+
+        <Col xs={2}>
+          <Row className="d-flex justify-content-center">
+            <ThermometerIcon />
+          </Row>
+          <Row className="d-flex justify-content-center">
+            <Col className="d-flex justify-content-center">
+              <span id="MaxTemp">
+                {max}° <span id="MinTemp">{min}°</span>{" "}
+              </span>
+            </Col>
+          </Row>
+        </Col>
+
+        <Col xs={1}>
+          <Row className="d-flex justify-content-center">
+            <WindIcon />
+          </Row>
+          <Row className="d-flex justify-content-center">
+            <span id="WindSpeed">{speed}m/h</span>
+          </Row>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

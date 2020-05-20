@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "../../../Styles/styles.css";
+import Container from "react-bootstrap/Container";
 
 class Location extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: ""
+      date: "",
     };
   }
 
@@ -17,7 +18,7 @@ class Location extends Component {
       "Wednesday",
       "Thursday",
       "Friday",
-      "Saturday"
+      "Saturday",
     ];
     const months = [
       "January",
@@ -31,7 +32,7 @@ class Location extends Component {
       "September",
       "October",
       "November",
-      "December"
+      "December",
     ];
     const today = new Date();
     const dd = String(today.getDate()).padStart(2, "0");
@@ -42,7 +43,7 @@ class Location extends Component {
     const yyyy = today.getFullYear();
 
     this.setState({
-      date: `${day}, ${mm} ${dd}, ${yyyy}`
+      date: `${day}, ${mm} ${dd}, ${yyyy}`,
     });
   }
 
@@ -55,12 +56,10 @@ class Location extends Component {
     const { date } = this.state;
 
     return (
-      <>
-        <div className="location">
-          <div id="cityName">{name}</div>
-          <div id="date">{date}</div>
-        </div>
-      </>
+      <Container fluid id="Location">
+        <Container fluid id="CityName">{name}</Container>
+        <Container fluid id="Date">{date}</Container>
+      </Container>
     );
   }
 }

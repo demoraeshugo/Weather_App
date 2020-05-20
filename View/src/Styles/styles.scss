@@ -1,25 +1,116 @@
-@import "./header";
-@import "./colors";
-@import "./body";
-@import "./wrapper";
-@import "./sections";
-@import "./weather-info";
-@import './components/location';
-@import './components/currentWeather';
-@import './components/autoSuggest';
+@import url("https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap");
 
-body {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
+@import "./colors";
 
 * {
-    //border: .5px solid red;
-    color: black;
-    font-family: HiraMaruPro-W4;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 300;
+  color: white;
 }
 
+#Body {
+  background-color: $blue !important;
+}
 
+svg {
+  height: 48px;
+  width: auto;
+}
 
+.WeekDayCard {
+  padding-left: 7.5px !important;
+  padding-right: 7.5px !important;
+  .WeekDay {
+    font-size: 1.1rem;
+  }
+  svg {
+    height: 28px;
+    width: auto;
+  }
+  .Container {
+    background-color: $pale-blue;
+    padding-top: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .CurrentTemp {
+    font-size: 2.9rem;
+    padding-left: 5px;
+  }
+  .Description {
+    font-size: 1.1rem;
+    margin-top: -5px;
+  }
 
+  .Details {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    span {
+      font-size: .7rem;
+      padding-top: 10px;
+    }
+  }
+}
+
+.Header {
+  svg {
+    height: 15px;
+    width: auto;
+  }
+  .MaxTemp {
+    font-size: 0.7rem;
+  }
+  .MinTemp {
+    font-size: 0.7rem;
+    color: $pale-blue;
+  }
+}
+
+/* Text inside suggestion box*/
+#react-autowhatever-1 * {
+  color: $gray;
+}
+
+/* Top left "Weatherly" */
+#Brand {
+  color: $gray;
+}
+
+#Location {
+  padding-top: 15px;
+  padding-bottom: 32px;
+}
+
+#CityName {
+  font-size: 1.7rem;
+}
+
+.line {
+  width: auto;
+  height: 100rem;
+  border: solid 1px #ffffff;
+}
+
+#CurrentTemp {
+  font-size: 5.5rem;
+}
+
+#Description {
+  font-size: 1.7rem;
+  margin-top: -20px;
+}
+
+#MinTemp {
+  color: $pale-blue;
+}
+
+#Details span {
+  font-size: 1.7rem;
+  padding-top: 10px;
+}
+
+#Details {
+  padding-top: 70px;
+  padding-bottom: 140px;
+}

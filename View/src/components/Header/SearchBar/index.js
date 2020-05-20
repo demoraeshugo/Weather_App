@@ -1,6 +1,6 @@
 import Autosuggest from "react-autosuggest";
 import React, { Component } from "react";
-import "../../../Styles/styles.css";
+import "./styles.css";
 
 class SearchBar extends Component {
   constructor() {
@@ -26,12 +26,12 @@ class SearchBar extends Component {
       isLoading: true,
     });
 
-    await getSuggestionsAPI(value)
-    
+    await getSuggestionsAPI(value);
+
     this.setState({
       isLoading: false,
       suggestions: this.getSuggestions(value),
-    })
+    });
   };
 
   getSuggestionValue = (suggestion) => suggestion.name;
@@ -75,6 +75,19 @@ class SearchBar extends Component {
     return value.trim().length > 2;
   };
 
+  renderInputComponent = (inputProps) => {
+    const { className, ...other } = inputProps;
+
+    return (
+      <input
+        className="form-control mr-sm-2"
+        type="search"
+        placeholder="Search..."
+        {...other}
+      />
+    );
+  };
+
   render() {
     const { value, suggestions } = this.state;
     const {
@@ -84,12 +97,12 @@ class SearchBar extends Component {
       getSuggestionValue,
       renderSuggestion,
       shouldRenderSuggestions,
+      renderInputComponent,
     } = this;
     const { onSuggestionSelected } = this.props;
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
-      placeholder: "Type City Name",
       value,
       onChange: onChange,
     };
@@ -106,6 +119,7 @@ class SearchBar extends Component {
           inputProps={inputProps}
           onSuggestionSelected={onSuggestionSelected}
           shouldRenderSuggestions={shouldRenderSuggestions}
+          renderInputComponent={renderInputComponent}
         />
       </div>
     );
