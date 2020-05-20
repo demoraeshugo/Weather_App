@@ -50,10 +50,14 @@ svg {
       font-size: .7rem;
       padding-top: 10px;
     }
+    .MinTemp {
+        color: $pale-blue2;
+      }
   }
 }
 
 .Header {
+    padding-bottom: 30px;
   svg {
     height: 15px;
     width: auto;
@@ -63,7 +67,7 @@ svg {
   }
   .MinTemp {
     font-size: 0.7rem;
-    color: $pale-blue;
+    color: $pale-blue2;
   }
 }
 

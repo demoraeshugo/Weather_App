@@ -56,6 +56,14 @@ svg {
   padding-top: 10px;
 }
 
+.WeekDayCard .Details .MinTemp {
+  color: #d3e6ff;
+}
+
+.Header {
+  padding-bottom: 30px;
+}
+
 .Header svg {
   height: 15px;
   width: auto;
@@ -67,7 +75,7 @@ svg {
 
 .Header .MinTemp {
   font-size: 0.7rem;
-  color: rgba(211, 230, 255, 0.42);
+  color: #d3e6ff;
 }
 
 /* Text inside suggestion box*/

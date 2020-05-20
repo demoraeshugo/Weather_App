@@ -25,7 +25,7 @@ class Body extends Component {
     const { speed } = currentData.wind;
 
     return (
-      <Container className="body" id="Body">
+      <Container fluid className="body" id="Body">
         <Row>
           <Location location={location} />
         </Row>

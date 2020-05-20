@@ -137,7 +137,7 @@ class App extends Component {
     const { getWeather, getSuggestionsAPI, onSuggestionSelected } = this;
 
     return (
-      <Container fluid="xl">
+      <Container fluid>
         <Header
           cityList={cityList}
           getSuggestionsAPI={getSuggestionsAPI}
