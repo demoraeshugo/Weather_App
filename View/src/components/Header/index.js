@@ -19,11 +19,11 @@ const Header = (props) => {
             </Nav.Link>
             <NavDropdown title="About" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Linkedin</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item href="http://demoraeshugo.com/">
                 Personal Website
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Resume</NavDropdown.Item>
+              <NavDropdown.Item href="http://demoraeshugo.com/Images/Hugo_Resume.pdf">Resume</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
