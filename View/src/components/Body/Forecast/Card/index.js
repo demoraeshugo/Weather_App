@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Collapse from "react-bootstrap/Collapse";
+import withSizes from "react-sizes";
 
 const Card = (props) => {
   const {
@@ -17,16 +18,10 @@ const Card = (props) => {
     description,
     speed,
     weekDay,
+    shouldCollapse
   } = props;
   return (
-    <Col
-      className="WeekDayCard"
-      xs={12}
-      sm={12}
-      md={12}
-      lg={2}
-      xl={2}
-    >
+    <Col className="WeekDayCard" xs={12} sm={12} md={12} lg={2} xl={2}>
       <Container className="Card-Container">
         <Container className="Header-Container">
           <Row className="d-flex justify-content-between Header ">
@@ -43,7 +38,7 @@ const Card = (props) => {
           </Row>
         </Container>
 
-        <Collapse>
+        <Collapse in={!shouldCollapse}>
           <Container className="Body-Container hidden-xs">
             <Row className="justify-content-center">
               <Col xs="auto" className="d-flex">
@@ -95,4 +90,8 @@ const Card = (props) => {
   );
 };
 
-export default Card;
+const mapSizesToProps = ({ width }) => ({
+  shouldCollapse: width < 992,
+});
+
+export default withSizes(mapSizesToProps)(Card);

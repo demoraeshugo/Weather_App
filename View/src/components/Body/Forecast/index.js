@@ -1,12 +1,7 @@
 import React from "react";
 import Card from "./Card";
-import withSizes from "react-sizes";
 
 const ForecastWeather = (props) => {
-  const mapSizesToProps = ({ width }) => ({
-    shouldCollapse: width < 992,
-  });
-
   //Filter array indexes so that we display only one forcast per day
   var filtered = props.forecastData.list.filter(
     (val, index) => index % 8 === 0
