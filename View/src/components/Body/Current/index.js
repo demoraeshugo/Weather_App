@@ -18,16 +18,15 @@ const CurrentWeather = (props) => {
 
   return (
     <Container fluid="xl">
-
-      <Row className="justify-content-center">
-
-        <Col xs="auto" className="d-flex">
-          <Container className="my-auto" >
+      <Row className="justify-content-center d-flex">
+        <Container className="justify-content-center d-flex" id="CurrentTemp">
+          <Container className="my-auto">
             <CurrentWeatherIcon />
           </Container>
-          <span id="CurrentTemp">{current}°</span>
-        </Col>
-
+          <Container id="CurrentTemp"> 
+            <span>{current}°</span>
+          </Container>
+        </Container>
       </Row>
 
       <Row className="d-flex justify-content-center">
@@ -35,7 +34,6 @@ const CurrentWeather = (props) => {
       </Row>
 
       <Row className="justify-content-center" id="Details">
-
         <Col>
           <Row className="d-flex justify-content-center">
             <DewDropIcon />
@@ -50,9 +48,9 @@ const CurrentWeather = (props) => {
             <ThermometerIcon />
           </Row>
           <Row className="d-flex justify-content-center">
-              <span id="MaxTemp">
-                {max}° <span id="MinTemp">{min}°</span>{" "}
-              </span>
+            <span id="MaxTemp">
+              {max}° <span id="MinTemp">{min}°</span>{" "}
+            </span>
           </Row>
         </Col>
 
@@ -64,11 +62,7 @@ const CurrentWeather = (props) => {
             <span id="WindSpeed">{speed}m/h</span>
           </Row>
         </Col>
-
       </Row>
-
-
-
     </Container>
   );
 };

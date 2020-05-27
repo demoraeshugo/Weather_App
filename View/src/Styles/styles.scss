@@ -153,3 +153,10 @@ svg {
     color: $gray;
   }
 }
+
+#CurrentTemp {
+  width: 375px;
+  svg {
+    float: right;
+  }
+}

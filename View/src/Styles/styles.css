@@ -159,4 +159,12 @@ svg {
 #Footer * {
   color: #555555;
 }
+
+#CurrentTemp {
+  width: 375px;
+}
+
+#CurrentTemp svg {
+  float: right;
+}
 /*# sourceMappingURL=styles.css.map */
