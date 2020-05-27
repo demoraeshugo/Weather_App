@@ -18,15 +18,14 @@ const CurrentWeather = (props) => {
 
   return (
     <Container fluid="xl">
-      <Row className="justify-content-center d-flex">
-        <Container className="justify-content-center d-flex" id="CurrentTemp">
-          <Container className="my-auto">
-            <CurrentWeatherIcon />
-          </Container>
-          <Container id="CurrentTemp"> 
-            <span>{current}°</span>
-          </Container>
-        </Container>
+      <Row className="justify-content-center" id="Current">
+        <Col className="my-auto">
+          <CurrentWeatherIcon />
+        </Col>
+
+        <Col id="CurrentTemp">
+          <span>{current}°</span>
+        </Col>
       </Row>
 
       <Row className="d-flex justify-content-center">

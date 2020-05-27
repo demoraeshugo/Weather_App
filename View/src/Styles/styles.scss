@@ -132,19 +132,19 @@ svg {
   color: $pale-blue;
 }
 
-#Details span {
-  font-size: 1.7rem;
-  padding-top: 10px;
-}
-
 #Details {
   padding-top: 70px;
   padding-bottom: 130px;
-  max-width: 375px;
+  max-width: 400px;
   margin: auto;
 
   .col {
     width: 33%;
+  }
+
+  span {
+    font-size: 1.7rem;
+    padding-top: 10px;
   }
 }
 
@@ -154,8 +154,14 @@ svg {
   }
 }
 
-#CurrentTemp {
-  width: 375px;
+#Current {
+  max-width: 400px;
+  margin: auto;
+
+  .col {
+    width: 50%;
+  }
+
   svg {
     float: right;
   }

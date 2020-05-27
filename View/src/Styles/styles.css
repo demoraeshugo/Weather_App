@@ -140,15 +140,10 @@ svg {
   color: rgba(211, 230, 255, 0.42);
 }
 
-#Details span {
-  font-size: 1.7rem;
-  padding-top: 10px;
-}
-
 #Details {
   padding-top: 70px;
   padding-bottom: 130px;
-  max-width: 375px;
+  max-width: 400px;
   margin: auto;
 }
 
@@ -156,15 +151,25 @@ svg {
   width: 33%;
 }
 
+#Details span {
+  font-size: 1.7rem;
+  padding-top: 10px;
+}
+
 #Footer * {
   color: #555555;
 }
 
-#CurrentTemp {
-  width: 375px;
+#Current {
+  max-width: 400px;
+  margin: auto;
 }
 
-#CurrentTemp svg {
+#Current .col {
+  width: 50%;
+}
+
+#Current svg {
   float: right;
 }
 /*# sourceMappingURL=styles.css.map */
