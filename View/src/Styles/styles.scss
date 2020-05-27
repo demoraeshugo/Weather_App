@@ -14,8 +14,8 @@
 }
 
 svg {
-  height: 48px;
-  width: auto;
+  height: 45px;
+  width: max-content;
 }
 
 .WeekDayCard {
@@ -47,17 +47,17 @@ svg {
     padding-top: 35px;
     padding-bottom: 35px;
     span {
-      font-size: .7rem;
+      font-size: 0.7rem;
       padding-top: 10px;
     }
     .MinTemp {
-        color: $pale-blue2;
-      }
+      color: $pale-blue2;
+    }
   }
 }
 
 .Header {
-    padding-bottom: 30px;
+  padding-bottom: 30px;
   svg {
     height: 15px;
     width: auto;
@@ -117,4 +117,14 @@ svg {
 #Details {
   padding-top: 70px;
   padding-bottom: 140px;
+  max-width: 375px;
+  margin: auto;
+
+  .col {
+    width: 33%;
+  }
+}
+
+#App {
+  padding: 0;
 }

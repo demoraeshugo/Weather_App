@@ -11,8 +11,10 @@
 }
 
 svg {
-  height: 48px;
-  width: auto;
+  height: 45px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .WeekDayCard {
@@ -52,7 +54,7 @@ svg {
 }
 
 .WeekDayCard .Details span {
-  font-size: .7rem;
+  font-size: 0.7rem;
   padding-top: 10px;
 }
 
@@ -124,5 +126,15 @@ svg {
 #Details {
   padding-top: 70px;
   padding-bottom: 140px;
+  max-width: 375px;
+  margin: auto;
+}
+
+#Details .col {
+  width: 33%;
+}
+
+#App {
+  padding: 0;
 }
 /*# sourceMappingURL=styles.css.map */

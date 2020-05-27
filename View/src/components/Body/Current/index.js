@@ -17,23 +17,26 @@ const CurrentWeather = (props) => {
   speed = Math.round(speed);
 
   return (
-    <Container fluid>
-      
-      <Row className="d-flex justify-content-center">
-        <Col xs={1} className="my-auto">
-          <CurrentWeatherIcon />
-        </Col>
-        <Col xs={2}>
+    <Container fluid="xl">
+
+      <Row className="justify-content-center">
+
+        <Col xs="auto" className="d-flex">
+          <Container id="CurrentIcon" className="my-auto" >
+            <CurrentWeatherIcon />
+          </Container>
           <span id="CurrentTemp">{current}°</span>
         </Col>
+
       </Row>
 
       <Row className="d-flex justify-content-center">
         <span id="Description">{description}</span>
       </Row>
 
-      <Row className="d-flex justify-content-center" id="Details">
-        <Col xs={1}>
+      <Row className="justify-content-center" id="Details">
+
+        <Col>
           <Row className="d-flex justify-content-center">
             <DewDropIcon />
           </Row>
@@ -42,20 +45,18 @@ const CurrentWeather = (props) => {
           </Row>
         </Col>
 
-        <Col xs={2}>
+        <Col>
           <Row className="d-flex justify-content-center">
             <ThermometerIcon />
           </Row>
           <Row className="d-flex justify-content-center">
-            <Col className="d-flex justify-content-center">
               <span id="MaxTemp">
                 {max}° <span id="MinTemp">{min}°</span>{" "}
               </span>
-            </Col>
           </Row>
         </Col>
 
-        <Col xs={1}>
+        <Col>
           <Row className="d-flex justify-content-center">
             <WindIcon />
           </Row>
@@ -63,9 +64,26 @@ const CurrentWeather = (props) => {
             <span id="WindSpeed">{speed}m/h</span>
           </Row>
         </Col>
+
       </Row>
+
+
+
     </Container>
   );
 };
 
 export default CurrentWeather;
+
+/*
+   <Row className="d-flex justify-content-center">
+        <Col className="my-auto" id="CurrentIcon">
+          <CurrentWeatherIcon/>
+        </Col>
+        <Col>
+          <span id="CurrentTemp">{current}°</span>
+        </Col>
+      </Row>
+
+
+*/
