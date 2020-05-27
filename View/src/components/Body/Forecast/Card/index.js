@@ -21,9 +21,9 @@ const Card = (props) => {
     shouldCollapse
   } = props;
   return (
-    <Col className="WeekDayCard" xs={12} sm={12} md={12} lg={2} xl={2}>
+    <Col className="WeekDayCard" xs={12} sm={12} md="auto" lg="auto" xl="auto">
       <Container className="Card-Container">
-        <Container className="Header-Container">
+        <Container className="Header-Container my-auto">
           <Row className="d-flex justify-content-between Header ">
             <span className="my-auto float-left">
               <CurrentWeatherIcon />
@@ -39,7 +39,7 @@ const Card = (props) => {
         </Container>
 
         <Collapse in={!shouldCollapse}>
-          <Container className="Body-Container hidden-xs">
+          <Container className="Body-Container">
             <Row className="justify-content-center">
               <Col xs="auto" className="d-flex">
                 <Container className="my-auto">

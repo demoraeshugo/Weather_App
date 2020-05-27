@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header";
 import Body from "../Body";
+import Footer from "../Footer";
 import MockCurrent from "./MockCurrent.json";
 import MockForecast from "./MockForecast.json";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -149,6 +150,7 @@ class App extends Component {
           getWeather={getWeather}
           location={location}
         ></Body>
+        <Footer/>
       </Container>
     );
   }

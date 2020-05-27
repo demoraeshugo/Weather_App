@@ -22,7 +22,7 @@ const CurrentWeather = (props) => {
       <Row className="justify-content-center">
 
         <Col xs="auto" className="d-flex">
-          <Container id="CurrentIcon" className="my-auto" >
+          <Container className="my-auto" >
             <CurrentWeatherIcon />
           </Container>
           <span id="CurrentTemp">{current}°</span>
@@ -74,16 +74,3 @@ const CurrentWeather = (props) => {
 };
 
 export default CurrentWeather;
-
-/*
-   <Row className="d-flex justify-content-center">
-        <Col className="my-auto" id="CurrentIcon">
-          <CurrentWeatherIcon/>
-        </Col>
-        <Col>
-          <span id="CurrentTemp">{current}°</span>
-        </Col>
-      </Row>
-
-
-*/

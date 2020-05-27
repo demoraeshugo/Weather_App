@@ -6,8 +6,22 @@
   color: white;
 }
 
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+#App {
+  padding: 0;
+  height: 100%;
+}
+
 #Body {
   background-color: #2f87fd !important;
+  height: 100%;
 }
 
 svg {
@@ -18,8 +32,10 @@ svg {
 }
 
 .WeekDayCard {
+  width: 500px;
   padding-left: 7.5px !important;
   padding-right: 7.5px !important;
+  margin-bottom: 7.5px !important;
 }
 
 .WeekDayCard .WeekDay {
@@ -31,11 +47,16 @@ svg {
   width: auto;
 }
 
-.WeekDayCard .Container {
+.WeekDayCard .Card-Container {
   background-color: rgba(211, 230, 255, 0.42);
   padding-top: 5px;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.WeekDayCard .Header-Container {
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .WeekDayCard .CurrentTemp {
@@ -51,6 +72,8 @@ svg {
 .WeekDayCard .Details {
   padding-top: 35px;
   padding-bottom: 35px;
+  width: 180px;
+  margin: auto;
 }
 
 .WeekDayCard .Details span {
@@ -62,8 +85,8 @@ svg {
   color: #d3e6ff;
 }
 
-.Header {
-  padding-bottom: 30px;
+.WeekDayCard .Details .col {
+  width: 33%;
 }
 
 .Header svg {
@@ -125,7 +148,7 @@ svg {
 
 #Details {
   padding-top: 70px;
-  padding-bottom: 140px;
+  padding-bottom: 130px;
   max-width: 375px;
   margin: auto;
 }
@@ -134,7 +157,7 @@ svg {
   width: 33%;
 }
 
-#App {
-  padding: 0;
+#Footer * {
+  color: #555555;
 }
 /*# sourceMappingURL=styles.css.map */
