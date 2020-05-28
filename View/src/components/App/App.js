@@ -150,7 +150,7 @@ class App extends Component {
           getWeather={getWeather}
           location={location}
         ></Body>
-        <Footer/>
+        <Footer />
       </Container>
     );
   }
