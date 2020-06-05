@@ -14,6 +14,9 @@ Key Technologies Used:
 
 A live version can be found here: https://www.weatherlyapp.com/
 
+## Presentation
+I presented this project as part of a mentorship program, the slides can be found here: https://github.com/demoraeshugo/Weather_App/blob/master/Presentation/Weatherly%20Presentation%20-%20HDM.pdf
+
 ## Wireframe
 ### Web:
 
