@@ -12,6 +12,8 @@ Key Technologies Used:
   - PostgreSQL
   - AWS AMplify, API-Gateway, Lambda, RDS 
 
+A live version can be found here: https://www.weatherlyapp.com/
+
 ## Wireframe
 ### Web:
 
