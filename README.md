@@ -1,10 +1,10 @@
 # React Weather App
 
-Purpose:
+### Purpose:
   - I originally started this project as an excersice in Front-End development with React.JS and a 3rd party API   (OpenWeatherMap)
   - As the project grew in complexity, it evolved into an excercise in full-stack development with Node & AWS
   
-Key Technologies Used:
+### Key Technologies Used:
   - React.JS
   - Sass
   - React-Bootstrap 
