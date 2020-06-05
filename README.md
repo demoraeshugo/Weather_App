@@ -12,7 +12,8 @@ Key Technologies Used:
   - PostgreSQL
   - AWS AMplify, API-Gateway, Lambda, RDS 
 
-A live version can be found here: https://www.weatherlyapp.com/
+## Live Version
+My project is currently being hosted by AWS and can be found here https://www.weatherlyapp.com/
 
 ## Presentation
 I presented this project as part of a mentorship program, the slides can be found here: https://github.com/demoraeshugo/Weather_App/blob/master/Presentation/Weatherly%20Presentation%20-%20HDM.pdf
