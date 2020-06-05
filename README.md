@@ -5,12 +5,12 @@ Purpose:
   As the project grew in complexity, it evolved into an excercise in full-stack development with Node & AWS
   
 Key Technologies Used:
-  React.JS
-  Sass
-  React-Bootstrap 
-  Node.JS
-  PostgreSQL
-  AWS AMplify, API-Gateway, Lambda, RDS 
+  - React.JS
+  - Sass
+  - React-Bootstrap 
+  -  Node.JS
+  - PostgreSQL
+  - AWS AMplify, API-Gateway, Lambda, RDS 
 
 ## Wireframe
 ### Web:
