@@ -10,7 +10,7 @@
   - React-Bootstrap 
   -  Node.JS
   - PostgreSQL
-  - AWS AMplify, API-Gateway, Lambda, RDS 
+  - AWS Amplify, API-Gateway, Lambda, RDS 
 
 ## Live Version
 My project is currently being hosted by AWS and can be found here https://www.weatherlyapp.com/
