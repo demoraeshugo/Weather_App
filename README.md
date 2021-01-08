@@ -20,7 +20,6 @@ I presented this project as part of a mentorship program, the slides can be foun
 
 ## Wireframe
 
-Below you will find the two wireframes where this project all stemmed from.  One day I decided to watch a youtube video on Adobe XD and the rest is commit history :) 
 ### Web:
 
 ![Web_Frame@2x](https://user-images.githubusercontent.com/45345315/57752356-e7682b80-76b6-11e9-97e7-e809d108e5cc.png)
