@@ -13,7 +13,7 @@
   - AWS Amplify, API-Gateway, Lambda, RDS 
 
 ## Live Version
-My project is currently being hosted by AWS and can be found here https://www.weatherlyapp.com/
+My project was being hosted by AWS https://www.weatherlyapp.com/ but it cost too much 💰 to maintain now  
 
 ## Presentation
 I presented this project as part of a mentorship program, the slides can be found here: https://github.com/demoraeshugo/Weather_App/blob/master/Presentation/Weatherly%20Presentation%20-%20HDM.pdf
